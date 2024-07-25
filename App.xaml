@@ -9,6 +9,54 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Color x:Key="Primary">Gray</Color>
+            <Color x:Key="DarkPrimary">DarkGray</Color>
+
+            <Color x:Key="Background">White</Color>
+            <Color x:Key="DarkBackground">Black</Color>
+
+            <Color x:Key="LabelText">Black</Color>
+            <Color x:Key="DarkLabelText">White</Color>
+            
+
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}"/>
+            </Style>
+            
+
+            <Style TargetType="Label" x:Key="BaseLabel">
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
+            </Style>
+
+            <Style x:Key="SmallLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+
+            <Style x:Key="MediumLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style x:Key="LargeLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            
+
+            <Style TargetType="RefreshView" ApplyToDerivedTypes="True">
+                <Setter Property="RefreshColor" Value="{StaticResource Primary}"/>
+            </Style>
+
+
+            <Style x:Key="ButtonOutline" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}"/>
+                <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
+                <Setter Property="BorderWidth" Value="4"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
