@@ -4,6 +4,8 @@
              xmlns:model="clr-namespace:GymLifts.Model"
              xmlns:viewmodel="clr-namespace:GymLifts.ViewModel"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             x:DataType="viewmodel:MainPageViewModel"
+             Title="{Binding Title}"
              ios:Page.UseSafeArea="True"
              x:Class="GymLifts.View.MainPage">
 
