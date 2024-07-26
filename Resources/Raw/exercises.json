@@ -1,0 +1,67 @@
+[
+  {
+    "Name": "Bench Press",
+    "Category": "Barbell",
+    "MuscleGroup": "Chest"
+  },
+  {
+    "Name": "Incline Dumbbell Press",
+    "Category": "Dumbbell",
+    "MuscleGroup": "Upper Chest"
+  },
+  {
+    "Name": "Banded Pushup",
+    "Category": "Bodyweight",
+    "MuscleGroup": "Chest"
+  },
+  {
+    "Name": "Dumbbell Bench Hold",
+    "Category": "Dumbbell",
+    "MuscleGroup": "Chest"
+  },
+  {
+    "Name": "Close-Grip Bench Press",
+    "Category": "Barbell",
+    "MuscleGroup": "Tricep"
+  },
+  {
+    "Name": "Seated Bayesian Cable Flye",
+    "Category": "Cable",
+    "MuscleGroup": "Chest"
+  },
+  {
+    "Name": "Bodyweight Dip",
+    "Category": "Bodyweight",
+    "MuscleGroup": "Chest"
+  },
+  {
+    "Name": "Squat",
+    "Category": "Barbell",
+    "MuscleGroup": "Quads"
+  },
+  {
+    "Name": "RDL",
+    "Category": "Barbell",
+    "MuscleGroup": "Hamstrings"
+  },
+  {
+    "Name": "Lunges",
+    "Category": "Dumbbell",
+    "MuscleGroup": "Quads"
+  },
+  {
+    "Name": "Seated Hamstring Curl",
+    "Category": "Machine",
+    "MuscleGroup": "Hamstrings"
+  },
+  {
+    "Name": "Leg Extension",
+    "Category": "Machine",
+    "MuscleGroup": "Quads"
+  },
+  {
+    "Name": "Standing Calf Raises",
+    "Category": "Machine",
+    "MuscleGroup": "Calves"
+  }
+]
