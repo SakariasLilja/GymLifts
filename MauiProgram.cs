@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using GymLifts.View;
+using GymLifts.Services;
+using Microsoft.Extensions.Logging;
 
 namespace GymLifts
 {
@@ -18,6 +20,13 @@ namespace GymLifts
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<CategoryService>();
+            builder.Services.AddSingleton<MuscleGroupService>();
+
+            builder.Services.AddSingleton<MainPageViewModel>();
+
+            builder.Services.AddSingleton<MainPage>();
 
             return builder.Build();
         }
