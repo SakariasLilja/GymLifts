@@ -11,7 +11,7 @@ public class CategoryService
         if (categories?.Length > 0)
             return categories;
 
-        using var stream = await FileSystem.OpenAppPackageFileAsync("categories.csv");
+        using var stream = await FileSystem.OpenAppPackageFileAsync("exercisecategories.csv");
 
         using var reader = new StreamReader(stream);
 
