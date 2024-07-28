@@ -26,6 +26,7 @@ namespace GymLifts
             builder.Services.AddSingleton<ExerciseService>(); //Might need to be transient due to updates to file
 
             builder.Services.AddSingleton<MainPageViewModel>();
+            builder.Services.AddSingleton<CreateExerciseViewModel>();
 
             builder.Services.AddSingleton<MainPage>();
 
