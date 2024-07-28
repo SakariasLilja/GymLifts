@@ -4,68 +4,36 @@ namespace GymLifts.ViewModel;
 
 public partial class MainPageViewModel : BaseViewModel
 {
-    CategoryService categoryService;
-    MuscleGroupService muscleGroupService;
+    ExerciseService exerciseService;
 
-    public ObservableCollection<string> Categories { get; } = new ();
-    public ObservableCollection<string> MuscleGroups { get; } = new();
+    public ObservableCollection<Exercise> Exercises { get; } = new ();
 
-    public MainPageViewModel(CategoryService categoryService, MuscleGroupService muscleGroupService)
+    public MainPageViewModel(ExerciseService exerciseService)
     {
         Title = "Gym Lifts Tracker";
-        this.categoryService = categoryService;
-        this.muscleGroupService = muscleGroupService;
+        this.exerciseService = exerciseService;
     }
 
     [RelayCommand]
-    async Task GetCategoriesAsync()
-    {
-        if(IsBusy) 
-            return;
-        try
-        {
-            IsBusy = true;
-
-            var categories = await categoryService.GetCategories();
-
-            if(categories.Length != 0)
-                Categories.Clear();
-            foreach(var category in categories)
-                Categories.Add(category);
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(ex);
-            await Shell.Current.DisplayAlert("Error", "Error showing exercise categories", "OK");
-
-        }
-        finally
-        {
-            IsBusy = false;
-        }
-    }
-
-    [RelayCommand]
-    async Task GetMuscleGroupsAsync()
+    async Task GetExercisesAsync()
     {
         if (IsBusy)
             return;
         try
         {
             IsBusy = true;
+            var exercises = await exerciseService.GetExercises();
 
-            var muscleGroups = await muscleGroupService.GetMuscleGroups();
+            if (exercises.Count != 0)
+                Exercises.Clear();
 
-            if (muscleGroups.Length != 0)
-                MuscleGroups.Clear();
-            foreach (var muscleGroup in muscleGroups)
-                MuscleGroups.Add(muscleGroup);
+            foreach (var exercise in exercises)
+                Exercises.Add(exercise);
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex);
-            await Shell.Current.DisplayAlert("Error", "Error showing muscle groups", "OK");
-
+            await Shell.Current.DisplayAlert("Error", "Error getting exercises", "OK");
         }
         finally
         {
