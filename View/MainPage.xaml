@@ -9,37 +9,87 @@
              ios:Page.UseSafeArea="True"
              x:Class="GymLifts.View.MainPage">
 
-    <Grid RowDefinitions="Auto,*,Auto"
+    <Grid RowDefinitions="*,*,*,Auto"
           ColumnDefinitions="*,*"
-          ColumnSpacing="8">
+          ColumnSpacing="5"
+          RowSpacing="20"
+          Style="{StaticResource MainGrid}">
+        
         <Label Text="Hello User!"
-               HeightRequest="300"
                Style="{StaticResource LargeLabel}"
-               BackgroundColor="Green"
-               Grid.Row="0"
                Grid.ColumnSpan="2"
-               Padding="20"/>
-        <VerticalStackLayout BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}"
-                             Grid.Row="1"
-                             Grid.ColumnSpan="2"
-                             Padding="20">
+               VerticalOptions="StartAndExpand"
+               Margin="10,25,0,5"/>
+
+        <Grid ColumnDefinitions="Auto,*,*"
+              RowDefinitions="Auto,*,*,*,Auto"
+              ColumnSpacing="20"
+              RowSpacing="15"
+              Grid.Row="1"
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="2"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              Margin="10,0,0,20">
+
             <Label Text="Record New Lift"
                    HeightRequest="30"
-                   Style="{StaticResource MediumLabel}"/>
-            <Grid>
+                   Style="{StaticResource LargeLabel}"/>
+
+            <Grid Grid.Row="1"
+                  Grid.RowSpan="4"
+                  RowDefinitions="*,*,*,*"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  Margin="0,0,10,0">
+
+                <Entry Keyboard="Numeric" Grid.Row="1" VerticalOptions="CenterAndExpand" Text="Weight" Style="{StaticResource RecordPicker}"/>
+                <Entry Keyboard="Numeric" Grid.Row="2" VerticalOptions="CenterAndExpand" Text="Reps" Style="{StaticResource RecordPicker}"/>
+                <Entry Keyboard="Numeric" Grid.Row="3" VerticalOptions="CenterAndExpand" Text="RPE" Style="{StaticResource RecordPicker}"/>
+
+                <Picker Style="{StaticResource SmallPicker}"
+                        Title="Exercise"
+                        VerticalOptions="CenterAndExpand"/>
 
             </Grid>
-        </VerticalStackLayout>
+
+            <Button Text="+ New Exercise"
+                    Style="{StaticResource ButtonOutline}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    VerticalOptions="CenterAndExpand"
+                    HeightRequest="55"/>
+            
+            <Button Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    Grid.RowSpan="2"
+                    Text="Record"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    Style="{StaticResource ButtonOutline}"/>
+
+        </Grid>
 
         <Button Text="Add"
                 Style="{StaticResource ButtonOutline}"
-                Grid.Row="2"
-                Margin="5"/>
+                Grid.Row="3"
+                FontSize="20"
+                FontAttributes="Bold"
+                VerticalOptions="EndAndExpand"
+                HeightRequest="80"/>
+        
         <Button Text="Track"
                 Style="{StaticResource ButtonOutline}"
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
-                Margin="5"/>
+                FontSize="20"
+                FontAttributes="Bold"
+                VerticalOptions="EndAndExpand"
+                HeightRequest="80"/>
     </Grid>
 
 </ContentPage>
