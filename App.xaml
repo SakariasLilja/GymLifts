@@ -15,7 +15,7 @@
             <Color x:Key="Background">#FFFDFC</Color>
             <Color x:Key="DarkBackground">#111111</Color>
 
-            <Color x:Key="LabelText">#111111</Color>
+            <Color x:Key="LabelText">#2D2D2D</Color>
             <Color x:Key="DarkLabelText">NavajoWhite</Color>
 
 
@@ -33,13 +33,13 @@
             <Style TargetType="Entry" x:Key="RecordPicker">
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
                 <Setter Property="Opacity" Value="0.7"/>
             </Style>
 
             <Style TargetType="Grid" x:Key="MainGrid">
                 <Setter Property="BackgroundColor" 
                         Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}"/>
-                <Setter Property="Padding" Value="8"/>
             </Style>
 
             <Style TargetType="Label" x:Key="BaseLabel">
@@ -66,13 +66,13 @@
 
 
             <Style x:Key="ButtonOutline" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}"/>
+                <Setter Property="BackgroundColor" Value="#f0f0f0"/>
                 <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
                 <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
                 <Setter Property="BorderWidth" Value="4"/>
-                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="CornerRadius" Value="50"/>
             </Style>
-            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
