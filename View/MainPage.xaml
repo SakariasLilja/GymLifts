@@ -14,7 +14,7 @@
           ColumnSpacing="5"
           RowSpacing="20"
           Style="{StaticResource MainGrid}">
-        
+
         <Label Text="Hello User!"
                Style="{StaticResource LargeLabel}"
                Grid.ColumnSpan="2"
@@ -33,15 +33,15 @@
               Margin="10,0,0,20">
 
             <Label Text="Record New Lift"
-                   HeightRequest="30"
-                   Style="{StaticResource LargeLabel}"/>
+                    HeightRequest="30"
+                    Style="{StaticResource LargeLabel}"/>
 
             <Grid Grid.Row="1"
-                  Grid.RowSpan="4"
-                  RowDefinitions="*,*,*,*"
-                  VerticalOptions="FillAndExpand"
-                  HorizontalOptions="FillAndExpand"
-                  Margin="0,0,10,0">
+                    Grid.RowSpan="4"
+                    RowDefinitions="*,*,*,*"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,0,10,0">
 
                 <Entry Keyboard="Numeric" Grid.Row="1" VerticalOptions="CenterAndExpand" Text="Weight" Style="{StaticResource RecordPicker}"/>
                 <Entry Keyboard="Numeric" Grid.Row="2" VerticalOptions="CenterAndExpand" Text="Reps" Style="{StaticResource RecordPicker}"/>
@@ -49,7 +49,10 @@
 
                 <Picker Style="{StaticResource SmallPicker}"
                         Title="Exercise"
-                        VerticalOptions="CenterAndExpand"/>
+                        VerticalOptions="CenterAndExpand"
+                        ItemsSource="{Binding Exercises}"
+                        ItemDisplayBinding="{Binding Name}">
+                </Picker>
 
             </Grid>
 
@@ -62,7 +65,7 @@
                     FontAttributes="Bold"
                     VerticalOptions="CenterAndExpand"
                     HeightRequest="55"/>
-            
+
             <Button Grid.Column="1"
                     Grid.ColumnSpan="2"
                     Grid.Row="3"
@@ -74,14 +77,14 @@
 
         </Grid>
 
-        <Button Text="Add"
+            <Button Text="Add"
                 Style="{StaticResource ButtonOutline}"
                 Grid.Row="3"
                 FontSize="20"
                 FontAttributes="Bold"
                 VerticalOptions="EndAndExpand"
                 HeightRequest="80"/>
-        
+
         <Button Text="Track"
                 Style="{StaticResource ButtonOutline}"
                 Grid.Row="3"
