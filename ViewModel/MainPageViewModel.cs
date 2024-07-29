@@ -15,7 +15,7 @@ public partial class MainPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task GetExercisesAsync()
+    public async Task GetExercisesAsync()
     {
         if (IsBusy)
             return;
