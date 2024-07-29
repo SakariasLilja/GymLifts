@@ -9,21 +9,38 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <Color x:Key="Primary">Gray</Color>
-            <Color x:Key="DarkPrimary">DarkGray</Color>
+            <Color x:Key="Primary">#350059</Color>
+            <Color x:Key="DarkPrimary">#25003F</Color>
 
-            <Color x:Key="Background">White</Color>
-            <Color x:Key="DarkBackground">Black</Color>
+            <Color x:Key="Background">#FFFDFC</Color>
+            <Color x:Key="DarkBackground">#111111</Color>
 
-            <Color x:Key="LabelText">Black</Color>
-            <Color x:Key="DarkLabelText">White</Color>
-            
+            <Color x:Key="LabelText">#111111</Color>
+            <Color x:Key="DarkLabelText">NavajoWhite</Color>
+
 
             <Style TargetType="Page" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor"
                         Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}"/>
             </Style>
-            
+
+            <Style TargetType="Picker" x:Key="SmallPicker">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
+                <Setter Property="TitleColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="RecordPicker">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
+                <Setter Property="Opacity" Value="0.7"/>
+            </Style>
+
+            <Style TargetType="Grid" x:Key="MainGrid">
+                <Setter Property="BackgroundColor" 
+                        Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}"/>
+                <Setter Property="Padding" Value="8"/>
+            </Style>
 
             <Style TargetType="Label" x:Key="BaseLabel">
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -31,15 +48,15 @@
             </Style>
 
             <Style x:Key="SmallLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
-                <Setter Property="FontSize" Value="12"/>
-            </Style>
-
-            <Style x:Key="MediumLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
                 <Setter Property="FontSize" Value="16"/>
             </Style>
 
+            <Style x:Key="MediumLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+
             <Style x:Key="LargeLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
-                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontSize" Value="22"/>
             </Style>
             
 
@@ -53,7 +70,6 @@
                 <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
                 <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
                 <Setter Property="BorderWidth" Value="4"/>
-                <Setter Property="HeightRequest" Value="60"/>
                 <Setter Property="CornerRadius" Value="10"/>
             </Style>
             
