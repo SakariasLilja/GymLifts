@@ -30,6 +30,7 @@ namespace GymLifts
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<CreateExercise>();
+            builder.Services.AddSingleton<ProfilePage>();
 
             return builder.Build();
         }
