@@ -42,9 +42,9 @@
                     HorizontalOptions="FillAndExpand"
                     Margin="0,0,10,0">
 
-                <Entry Keyboard="Numeric" Grid.Row="1" VerticalOptions="CenterAndExpand" Placeholder="Weight" Style="{StaticResource RecordPicker}"/>
-                <Entry Keyboard="Numeric" Grid.Row="2" VerticalOptions="CenterAndExpand" Placeholder="Reps" Style="{StaticResource RecordPicker}"/>
-                <Entry Keyboard="Numeric" Grid.Row="3" VerticalOptions="CenterAndExpand" Placeholder="RPE" Style="{StaticResource RecordPicker}"/>
+                <Entry Keyboard="Numeric" Grid.Row="1" VerticalOptions="CenterAndExpand" Placeholder="Weight" Style="{StaticResource RecordPicker}" ReturnType="Done"/>
+                <Entry Keyboard="Numeric" Grid.Row="2" VerticalOptions="CenterAndExpand" Placeholder="Reps" Style="{StaticResource RecordPicker}" ReturnType="Done"/>
+                <Entry Keyboard="Numeric" Grid.Row="3" VerticalOptions="CenterAndExpand" Placeholder="RPE" Style="{StaticResource RecordPicker}" ReturnType="Done"/>
 
                 <Picker Style="{StaticResource SmallPicker}"
                         Title="Exercise"
@@ -63,14 +63,15 @@
                     FontSize="18"
                     FontAttributes="Bold"
                     VerticalOptions="CenterAndExpand"
-                    HeightRequest="55"/>
+                    HeightRequest="55"
+                    Command="{Binding GoToCreateExerciseCommand}"/>
 
             <Button Grid.Column="1"
                     Grid.ColumnSpan="2"
                     Grid.Row="3"
                     Grid.RowSpan="2"
                     Text="Record"
-                    FontSize="24"
+                    FontSize="36"
                     FontAttributes="Bold"
                     Style="{StaticResource ButtonOutline}"/>
 
