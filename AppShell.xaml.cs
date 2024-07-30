@@ -1,6 +1,4 @@
-﻿using GymLifts.View;
-
-namespace GymLifts;
+﻿namespace GymLifts;
 
 public partial class AppShell : Shell
 {

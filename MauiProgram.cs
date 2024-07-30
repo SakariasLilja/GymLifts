@@ -1,5 +1,4 @@
-﻿using GymLifts.View;
-using GymLifts.Services;
+﻿using GymLifts.Services;
 using Microsoft.Extensions.Logging;
 
 namespace GymLifts

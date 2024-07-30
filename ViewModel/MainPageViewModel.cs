@@ -1,5 +1,4 @@
 ﻿using GymLifts.Services;
-using GymLifts.View;
 
 namespace GymLifts.ViewModel;
 
