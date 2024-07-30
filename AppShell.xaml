@@ -26,7 +26,10 @@
 
     <TabBar>
         <Tab Title="Add">
-            <ShellContent ContentTemplate="{DataTemplate view:MainPage}"/> 
+            <ShellContent ContentTemplate="{DataTemplate view:MainPage}"
+                          Shell.NavBarIsVisible="True"
+                          Title="Gym Lifts Tracker"
+                          Route="MainPage"/> 
         </Tab>
         <Tab Title="Track">
             
