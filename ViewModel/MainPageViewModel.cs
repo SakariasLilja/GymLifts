@@ -8,8 +8,9 @@ public partial class MainPageViewModel : BaseViewModel
     ExerciseService exerciseService;
 
     public ObservableCollection<Exercise> Exercises { get; } = new ();
-
     public float[] RPEs { get; set; } = { 4, 4.5f, 5, 5.5f, 6, 6.5f, 7, 7.5f, 8, 8.5f, 9, 9.5f, 10};
+    public string Reps { get; set; } = "";
+    public string Weight { get; set; } = "";
 
     public MainPageViewModel(ExerciseService exerciseService)
     {
