@@ -1,4 +1,5 @@
 ﻿using GymLifts.Services;
+using GymLifts.View;
 
 namespace GymLifts.ViewModel;
 
@@ -12,6 +13,12 @@ public partial class MainPageViewModel : BaseViewModel
     {
         Title = "Gym Lifts Tracker";
         this.exerciseService = exerciseService;
+    }
+
+    [RelayCommand]
+    async Task GoToCreateExerciseAsync()
+    {
+        await Shell.Current.GoToAsync($"{nameof(CreateExercise)}", true);
     }
 
     [RelayCommand]
