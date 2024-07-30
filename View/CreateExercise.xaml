@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:GymLifts.Model"
+             xmlns:viewmodel="clr-namespace:GymLifts.ViewModel"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             x:DataType="viewmodel:CreateExerciseViewModel"
+             Title="{Binding Title}"
+             ios:Page.UseSafeArea="True"
+             x:Class="GymLifts.View.CreateExercise">
+    <ScrollView>
+        <VerticalStackLayout Margin="10,60,10,50"
+                             Spacing="60">
+
+            <Entry Style="{StaticResource RecordPicker}"
+                   Placeholder="Exercise Name"
+                   Keyboard="Text"
+                   ReturnType="Done"
+                   ClearButtonVisibility="WhileEditing"
+                   Text="{Binding ExerciseName}"/>
+        
+            <Picker Style="{StaticResource SmallPicker}"
+                    Title="Category"
+                    ItemsSource="{Binding Categories}"/>
+        
+            <Picker Style="{StaticResource SmallPicker}"
+                    Title="Muscle Group"
+                    ItemsSource="{Binding MuscleGroups}"/>
+        
+            <Button Style="{StaticResource ButtonOutline}"
+                    Text="Register New Exercise"
+                    HeightRequest="120"
+                    FontSize="26"
+                    FontAttributes="Bold"
+                    CornerRadius="20"
+                    Margin="0,20,0,0"/>
+        
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
