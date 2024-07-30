@@ -10,6 +10,8 @@ public partial class CreateExerciseViewModel : BaseViewModel
     public ObservableCollection<string> Categories { get; } = new();
     public ObservableCollection<string> MuscleGroups { get; } = new();
 
+    public string ExerciseName { get; set; } = "";
+
     public CreateExerciseViewModel(CategoryService categoryService, MuscleGroupService muscleGroupService)
     {
         Title = "Register New Exercise";
@@ -18,7 +20,7 @@ public partial class CreateExerciseViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task GetCategoriesAsync()
+    public async Task GetCategoriesAsync()
     {
         if (IsBusy)
             return;
@@ -46,7 +48,7 @@ public partial class CreateExerciseViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task GetMuscleGroupsAsync()
+    public async Task GetMuscleGroupsAsync()
     {
         if (IsBusy)
             return;
