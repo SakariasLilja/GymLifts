@@ -15,10 +15,10 @@
                 <Setter Property="Shell.TitleColor" Value="NavajoWhite"/>
                 <Setter Property="Shell.DisabledColor" Value="#CCCCCC"/>
                 <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"/>
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkPrimary}, Light={StaticResource Primary}}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Dark={StaticResource Background}, Light={StaticResource DarkBackground}}" />
-                <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}" />
-                <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Dark={StaticResource Background}, Light={StaticResource DarkBackground}}" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="White" />
+                <Setter Property="Shell.TabBarTitleColor" Value="NavajoWhite" />
             </Style>
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="ShellItem" ApplyToDerivedTypes="True"/>
         </ResourceDictionary>
@@ -31,8 +31,10 @@
                           Title="Gym Lifts Tracker"
                           Route="MainPage"/> 
         </Tab>
-        <Tab Title="Track">
-            
+        <Tab Title="Profiles">
+            <ShellContent ContentTemplate="{DataTemplate view:ProfilePage}"
+                          Title="Profiles"
+                          Route="ProfilePage"/>
         </Tab>
     </TabBar>
     
