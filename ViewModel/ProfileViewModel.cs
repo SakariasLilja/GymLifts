@@ -2,6 +2,9 @@
 
 public partial class ProfileViewModel : BaseViewModel
 {
-    public ProfileViewModel() { }
+    public ProfileViewModel() 
+    {
+        Title = "Profiles";
+    }
 
 }
