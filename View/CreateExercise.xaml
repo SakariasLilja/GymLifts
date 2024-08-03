@@ -26,15 +26,16 @@
             <Picker Style="{StaticResource SmallPicker}"
                     Title="Muscle Group"
                     ItemsSource="{Binding MuscleGroups}"/>
-        
+
             <Button Style="{StaticResource ButtonOutline}"
                     Text="Register New Exercise"
                     HeightRequest="120"
                     FontSize="26"
                     FontAttributes="Bold"
                     CornerRadius="20"
-                    Margin="0,20,0,0"/>
-        
+                    Margin="0,20,0,0"
+                    Command="{Binding RegisterExerciseCommand}"/>
+
         </VerticalStackLayout>
     </ScrollView>
 

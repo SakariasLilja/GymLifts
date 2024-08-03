@@ -6,17 +6,41 @@ public partial class CreateExerciseViewModel : BaseViewModel
 {
     CategoryService categoryService;
     MuscleGroupService muscleGroupService;
+    ExerciseService exerciseService;
 
     public ObservableCollection<string> Categories { get; } = new();
     public ObservableCollection<string> MuscleGroups { get; } = new();
 
     public string ExerciseName { get; set; } = "";
 
-    public CreateExerciseViewModel(CategoryService categoryService, MuscleGroupService muscleGroupService)
+    public CreateExerciseViewModel(CategoryService categoryService, MuscleGroupService muscleGroupService, ExerciseService exerciseService)
     {
         Title = "Register New Exercise";
         this.categoryService = categoryService;
         this.muscleGroupService = muscleGroupService;
+        this.exerciseService = exerciseService;
+    }
+
+    [RelayCommand]
+    async Task RegisterExerciseAsync()
+    {
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsBusy = true;
+            await exerciseService.SaveExerciseAsync(ExerciseName, "category", "muscleGroup");
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            await Shell.Current.DisplayAlert("Error", $"Error registering new exercise: {ex}", "OK");
+        }
+        finally 
+        { 
+            IsBusy = false; 
+        }
     }
 
     [RelayCommand]
