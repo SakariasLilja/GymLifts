@@ -60,14 +60,6 @@ public class ExerciseService
         return exerciseList;
     }
 
-    public async Task<List<Exercise>> DebugSavedExercises()
-    {
-        File.Delete(savedExercisesPath);
-        exerciseList.Clear();
-        exerciseList = await GetSavedExercises();
-        return exerciseList;
-    }
-
     public async Task SaveExerciseAsync(string exerciseName, string category, string muscleGroup)
     {
         var savedExercises = await GetSavedExercises();
