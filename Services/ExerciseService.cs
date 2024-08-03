@@ -50,9 +50,21 @@ public class ExerciseService
         var defaultExercises = await GetDefaultExercises();
         var savedExercises = await GetSavedExercises();
 
-        try { exerciseList = defaultExercises.Concat(savedExercises).ToList(); }
+        try 
+        {
+            exerciseList.Clear();
+            exerciseList = defaultExercises.Concat(savedExercises).ToList(); 
+        }
         catch (Exception ex) { Debug.WriteLine(ex); }
 
+        return exerciseList;
+    }
+
+    public async Task<List<Exercise>> DebugSavedExercises()
+    {
+        File.Delete(savedExercisesPath);
+        exerciseList.Clear();
+        exerciseList = await GetSavedExercises();
         return exerciseList;
     }
 
@@ -63,7 +75,7 @@ public class ExerciseService
         Exercise exercise = new Exercise() { Name = exerciseName, Category = category, MuscleGroup = muscleGroup };
         savedExercises.Add(exercise);
 
-        var serializedExercises = JsonSerializer.Serialize(exerciseList);
+        var serializedExercises = JsonSerializer.Serialize(savedExercises);
 
         using FileStream outputStream = File.OpenWrite(savedExercisesPath);
         using StreamWriter writer = new StreamWriter(outputStream);

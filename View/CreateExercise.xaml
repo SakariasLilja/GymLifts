@@ -38,6 +38,13 @@
                         CornerRadius="20"
                         Margin="0,20,0,0"
                         Command="{Binding RegisterExerciseCommand}"/>
+                <Button Text="Debug"
+                        HeightRequest="120"
+                        FontSize="26"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        Style="{StaticResource ButtonOutline}"
+                        Command="{Binding DisplaySavedExercisesCommand}"/>
 
             </VerticalStackLayout>
             <ActivityIndicator IsVisible="{Binding IsBusy}"

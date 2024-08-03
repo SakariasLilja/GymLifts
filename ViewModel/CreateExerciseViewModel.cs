@@ -25,6 +25,13 @@ public partial class CreateExerciseViewModel : BaseViewModel
         this.muscleGroupService = muscleGroupService;
         this.exerciseService = exerciseService;
     }
+    [RelayCommand]
+    async Task DisplaySavedExercises()
+    {
+        var savedExercises = await exerciseService.DebugSavedExercises();
+        var serializedExercises = JsonSerializer.Serialize(savedExercises);
+        await Shell.Current.DisplayAlert("Debug", serializedExercises, "OK");
+    }
 
     [RelayCommand]
     async Task RegisterExerciseAsync()
