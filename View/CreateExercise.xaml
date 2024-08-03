@@ -9,34 +9,40 @@
              ios:Page.UseSafeArea="True"
              x:Class="GymLifts.View.CreateExercise">
     <ScrollView>
-        <VerticalStackLayout Margin="10,60,10,50"
-                             Spacing="60">
+        <Grid>
+            <VerticalStackLayout Margin="10,60,10,50"
+                                 Spacing="60">
 
-            <Entry Style="{StaticResource RecordPicker}"
-                   Placeholder="Exercise Name"
-                   Keyboard="Text"
-                   ReturnType="Done"
-                   ClearButtonVisibility="WhileEditing"
-                   Text="{Binding ExerciseName}"/>
-        
-            <Picker Style="{StaticResource SmallPicker}"
-                    Title="Category"
-                    ItemsSource="{Binding Categories}"/>
-        
-            <Picker Style="{StaticResource SmallPicker}"
-                    Title="Muscle Group"
-                    ItemsSource="{Binding MuscleGroups}"/>
+                <Entry Style="{StaticResource RecordPicker}"
+                       Placeholder="Exercise Name"
+                       Keyboard="Text"
+                       ReturnType="Done"
+                       ClearButtonVisibility="WhileEditing"
+                       Text="{Binding ExerciseName}"/>
 
-            <Button Style="{StaticResource ButtonOutline}"
-                    Text="Register New Exercise"
-                    HeightRequest="120"
-                    FontSize="26"
-                    FontAttributes="Bold"
-                    CornerRadius="20"
-                    Margin="0,20,0,0"
-                    Command="{Binding RegisterExerciseCommand}"/>
+                <Picker Style="{StaticResource SmallPicker}"
+                        Title="Category"
+                        ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding SelectedCategory}"/>
 
-        </VerticalStackLayout>
+                <Picker Style="{StaticResource SmallPicker}"
+                        Title="Muscle Group"
+                        ItemsSource="{Binding MuscleGroups}"
+                        SelectedItem="{Binding SelectedMuscleGroup}"/>
+
+                <Button Style="{StaticResource ButtonOutline}"
+                        Text="Register New Exercise"
+                        HeightRequest="120"
+                        FontSize="26"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        Margin="0,20,0,0"
+                        Command="{Binding RegisterExerciseCommand}"/>
+
+            </VerticalStackLayout>
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               Style="{StaticResource DefaultActivityIndicator}"/>
+        </Grid>
     </ScrollView>
 
 </ContentPage>
