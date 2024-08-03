@@ -18,6 +18,9 @@
             <Color x:Key="LabelText">#2D2D2D</Color>
             <Color x:Key="DarkLabelText">NavajoWhite</Color>
 
+            <Style TargetType="ActivityIndicator" x:Key="DefaultActivityIndicator">
+                <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource DarkPrimary}, Light={StaticResource Primary}}"/>
+            </Style>
 
             <Style TargetType="Page" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor"
