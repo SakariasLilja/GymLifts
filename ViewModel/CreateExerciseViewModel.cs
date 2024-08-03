@@ -12,6 +12,11 @@ public partial class CreateExerciseViewModel : BaseViewModel
     public ObservableCollection<string> MuscleGroups { get; } = new();
 
     public string ExerciseName { get; set; } = "";
+    private bool IsNamed => ExerciseName != null && ExerciseName != "";
+    public string SelectedCategory { get; set; }
+    private bool HasCategory => SelectedCategory != null && SelectedCategory != "";
+    public string SelectedMuscleGroup { get; set; }
+    private bool HasMuscleGroup => SelectedMuscleGroup != null && SelectedMuscleGroup != "";
 
     public CreateExerciseViewModel(CategoryService categoryService, MuscleGroupService muscleGroupService, ExerciseService exerciseService)
     {
@@ -30,7 +35,10 @@ public partial class CreateExerciseViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            await exerciseService.SaveExerciseAsync(ExerciseName, "category", "muscleGroup");
+            if (!IsNamed) { await Shell.Current.DisplayAlert("Warning", "Please name the exercise.", "OK"); }
+            else if (!HasCategory) { await Shell.Current.DisplayAlert("Warning", "Please select an exercise category.", "OK"); }
+            else if (!HasMuscleGroup) { await Shell.Current.DisplayAlert("Warning", "Please select the primary targeted muscle group.", "OK"); }
+            else { await exerciseService.SaveExerciseAsync(ExerciseName, SelectedCategory, SelectedMuscleGroup); }
         }
         catch (Exception ex)
         {
@@ -39,7 +47,8 @@ public partial class CreateExerciseViewModel : BaseViewModel
         }
         finally 
         { 
-            IsBusy = false; 
+            IsBusy = false;
+            await Shell.Current.DisplayAlert("Success!", "Successfully registered new exercise.", "OK");
         }
     }
 
