@@ -38,18 +38,20 @@ public partial class CreateExerciseViewModel : BaseViewModel
             if (!IsNamed) { await Shell.Current.DisplayAlert("Warning", "Please name the exercise.", "OK"); }
             else if (!HasCategory) { await Shell.Current.DisplayAlert("Warning", "Please select an exercise category.", "OK"); }
             else if (!HasMuscleGroup) { await Shell.Current.DisplayAlert("Warning", "Please select the primary targeted muscle group.", "OK"); }
-            else { await exerciseService.SaveExerciseAsync(ExerciseName, SelectedCategory, SelectedMuscleGroup); }
+            else 
+            { 
+                await exerciseService.SaveExerciseAsync(ExerciseName, SelectedCategory, SelectedMuscleGroup);
+                IsBusy = false;
+                await Shell.Current.DisplayAlert("Success!", $"Successfully registered exercise:\n{ExerciseName}", "OK");
+                await Shell.Current.GoToAsync("..", true);
+            }
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex);
             await Shell.Current.DisplayAlert("Error", $"Error registering new exercise: {ex}", "OK");
         }
-        finally 
-        { 
-            IsBusy = false;
-            await Shell.Current.DisplayAlert("Success!", "Successfully registered new exercise.", "OK");
-        }
+        finally { IsBusy = false; }
     }
 
     [RelayCommand]
