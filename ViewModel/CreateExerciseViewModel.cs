@@ -17,6 +17,11 @@ public partial class CreateExerciseViewModel : BaseViewModel
     private bool HasCategory => SelectedCategory != null && SelectedCategory != "";
     public string SelectedMuscleGroup { get; set; }
     private bool HasMuscleGroup => SelectedMuscleGroup != null && SelectedMuscleGroup != "";
+    private async Task<bool> IsDuplicate(string exerciseName)
+    {
+        var exerciseList = await exerciseService.GetExercises();
+        return exerciseList.Select(e => e.Name).Contains(exerciseName);
+    }
 
     public CreateExerciseViewModel(CategoryService categoryService, MuscleGroupService muscleGroupService, ExerciseService exerciseService)
     {
@@ -36,6 +41,7 @@ public partial class CreateExerciseViewModel : BaseViewModel
         {
             IsBusy = true;
             if (!IsNamed) { await Shell.Current.DisplayAlert("Warning", "Please name the exercise.", "OK"); }
+            else if (await IsDuplicate(ExerciseName)) { await Shell.Current.DisplayAlert("Warning", "This exercise is already registered.", "OK"); }
             else if (!HasCategory) { await Shell.Current.DisplayAlert("Warning", "Please select an exercise category.", "OK"); }
             else if (!HasMuscleGroup) { await Shell.Current.DisplayAlert("Warning", "Please select the primary targeted muscle group.", "OK"); }
             else 
