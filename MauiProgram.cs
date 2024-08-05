@@ -22,7 +22,8 @@ namespace GymLifts
 
             builder.Services.AddSingleton<CategoryService>();
             builder.Services.AddSingleton<MuscleGroupService>();
-            builder.Services.AddSingleton<ExerciseService>(); //Might need to be transient due to updates to file
+            builder.Services.AddSingleton<ExerciseService>();
+            builder.Services.AddTransient<LiftService>();
 
             builder.Services.AddSingleton<MainPageViewModel>();
             builder.Services.AddSingleton<CreateExerciseViewModel>();
