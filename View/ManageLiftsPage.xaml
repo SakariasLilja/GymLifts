@@ -9,12 +9,14 @@
              x:DataType="viewmodel:ManageLiftsViewModel"
              ios:Page.UseSafeArea="True"
              Title="{Binding Title}">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="*,*,*"
+          Margin="5,30,5,8">
+        <Label Text="Hello"
+               Style="{StaticResource LargeLabel}"/>
+        <lvc:CartesianChart Grid.Row="1"
+                            Grid.RowSpan="2"
+                            Series="{Binding Series}"/>
+    </Grid>
     
 </ContentPage>
