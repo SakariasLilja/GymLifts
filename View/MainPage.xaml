@@ -9,22 +9,13 @@
              ios:Page.UseSafeArea="True"
              x:Class="GymLifts.View.MainPage">
 
-    <Grid RowDefinitions="*,*,*"
-          RowSpacing="20"
-          Style="{StaticResource MainGrid}"
-          Margin="10,0,10,5">
-
-        <Label Text="Hello User!"
-               Style="{StaticResource LargeLabel}"
-               Grid.ColumnSpan="2"
-               VerticalOptions="StartAndExpand"
-               Margin="10,25,0,5"/>
+    <Grid Style="{StaticResource MainGrid}"
+          Margin="10,50,10,10">
 
         <Grid ColumnDefinitions="Auto,*,*"
               RowDefinitions="Auto,*,*,*,Auto"
               ColumnSpacing="20"
               RowSpacing="15"
-              Grid.Row="1"
               Grid.ColumnSpan="2"
               Grid.RowSpan="2"
               HorizontalOptions="FillAndExpand"
@@ -33,7 +24,8 @@
 
             <Label Text="Record New Lift"
                     HeightRequest="30"
-                    Style="{StaticResource LargeLabel}"/>
+                    Style="{StaticResource LargeLabel}"
+                   FontAttributes="Bold"/>
 
             <Grid Grid.Row="1"
                     Grid.RowSpan="4"
