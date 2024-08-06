@@ -1,5 +1,6 @@
 ﻿using GymLifts.Services;
 using Microsoft.Extensions.Logging;
+using Microcharts.Maui;
 
 namespace GymLifts
 {
@@ -10,6 +11,7 @@ namespace GymLifts
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMicrocharts()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
