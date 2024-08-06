@@ -89,7 +89,8 @@
                     FontAttributes="Bold"
                     HeightRequest="100"
                     CornerRadius="25"
-                    Style="{StaticResource ButtonOutline}"/>
+                    Style="{StaticResource ButtonOutline}"
+                    Command="{Binding RecordLiftCommand}"/>
 
         </Grid>
         

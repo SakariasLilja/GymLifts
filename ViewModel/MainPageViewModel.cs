@@ -15,12 +15,10 @@ public partial class MainPageViewModel : BaseViewModel
     private bool ValidRPE => RPEIndex >= 0;
 
     public string Reps { get; set; } = "";
-    private int reps;
-    private bool ValidReps => int.TryParse(Reps, out reps);
+    private bool ValidReps(out int reps) => int.TryParse(Reps, out reps);
 
     public string Weight { get; set; } = "";
-    private double weight;
-    private bool ValidWeight => double.TryParse(Weight, out weight);
+    private bool ValidWeight(out double weight) => double.TryParse(Weight, out weight);
 
     public MainPageViewModel(ExerciseService exerciseService)
     {
@@ -59,5 +57,41 @@ public partial class MainPageViewModel : BaseViewModel
         {
             IsBusy = false;
         }
+    }
+
+    [RelayCommand]
+    async Task RecordLiftAsync()
+    {
+        try
+        {
+            if (IsBusy)
+                return;
+            IsBusy = true;
+            int reps;
+            double weight;
+
+            if (!ValidExercise)
+                await Shell.Current.DisplayAlert("Warning", "Please select an exercise.", "OK");
+            else if (!ValidRPE)
+                await Shell.Current.DisplayAlert("Warning", "Please select a persieved RPE", "OK");
+            else if (!ValidReps(out reps))
+                await Shell.Current.DisplayAlert("Warning", "Please enter number of repetitions performed.", "OK");
+            else if (!ValidWeight(out weight))
+                await Shell.Current.DisplayAlert("Warning", "Please enter the amount of weight lifted.", "OK");
+            else
+            {
+                var time = DateTime.Now.ToString();
+                LiftService liftService = new LiftService(SelectedExercise.Name);
+                Lift lift = new Lift() { Reps = reps, RPE = RPEs[RPEIndex], Time = time, Weight = weight };
+                await liftService.SaveLiftAsync(lift);
+                await Shell.Current.DisplayAlert("Success", $"Successfully recorded lift:\n{SelectedExercise.Name}\nWeight: {weight}, Reps: {reps}, RPE: {RPEs[RPEIndex]}", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"{ex.Message}");
+            await Shell.Current.DisplayAlert("Error", "Fatal error recording lift.", "OK");
+        }
+        finally { IsBusy = false; }
     }
 }
