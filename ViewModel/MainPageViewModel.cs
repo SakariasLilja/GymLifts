@@ -77,7 +77,7 @@ public partial class MainPageViewModel : BaseViewModel
             else if (!ValidReps(out reps))
                 await Shell.Current.DisplayAlert("Warning", "Please enter number of repetitions performed as a whole number.", "OK");
             else if (!ValidWeight(out weight))
-                await Shell.Current.DisplayAlert("Warning", "Please enter the amount of weight lifted.", "OK");
+                await Shell.Current.DisplayAlert("Warning", "Please enter the amount of weight lifted / your bodyweight.", "OK");
             else
             {
                 var time = DateTime.Now.ToString();
