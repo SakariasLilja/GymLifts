@@ -5,6 +5,7 @@
              xmlns:viewmodel="clr-namespace:GymLifts.ViewModel"
              xmlns:model="clr-namespace:GymLifts.Model"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              x:DataType="viewmodel:ManageLiftsViewModel"
              ios:Page.UseSafeArea="True"
              Title="{Binding Title}">

@@ -1,4 +1,6 @@
 ﻿using GymLifts.Services;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
 
 namespace GymLifts.ViewModel;
 
