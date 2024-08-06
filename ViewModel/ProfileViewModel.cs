@@ -4,7 +4,7 @@ public partial class ProfileViewModel : BaseViewModel
 {
     public ProfileViewModel() 
     {
-        Title = "Profiles";
+        Title = "Manage Profiles";
     }
 
 }

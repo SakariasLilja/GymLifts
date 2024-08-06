@@ -10,6 +10,7 @@ public partial class ManageLiftsViewModel : BaseViewModel
     public ManageLiftsViewModel(ExerciseService exerciseService) 
     {
         this.exerciseService = exerciseService;
+        Title = "Manage Lifts and Exercises";
     }
 
     [RelayCommand]
