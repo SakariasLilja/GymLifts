@@ -1,5 +1,6 @@
 ﻿using GymLifts.Services;
 using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace GymLifts
 {
@@ -9,6 +10,7 @@ namespace GymLifts
         {
             var builder = MauiApp.CreateBuilder();
             builder
+                .UseSkiaSharp(true)
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
