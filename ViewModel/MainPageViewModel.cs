@@ -11,8 +11,8 @@ public partial class MainPageViewModel : BaseViewModel
     private bool ValidExercise => SelectedExercise != null;
 
     public double[] RPEs { get; } = { 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10};
-    public int RPEIndex { get; set; }
-    private bool ValidRPE => RPEIndex >= 0;
+    public double SelectedRPE { get; set; }
+    private bool ValidRPE => SelectedRPE > 0.0;
 
     public string Reps { get; set; } = "";
     private bool ValidReps(out int reps) => int.TryParse(Reps, out reps);
@@ -74,7 +74,7 @@ public partial class MainPageViewModel : BaseViewModel
             if (!ValidExercise)
                 await Shell.Current.DisplayAlert("Warning", "Please select an exercise.", "OK");
             else if (!ValidRPE)
-                await Shell.Current.DisplayAlert("Warning", "Please select a persieved RPE", "OK");
+                await Shell.Current.DisplayAlert("Warning", "Please select rate of persieved exertion.", "OK");
             else if (!ValidReps(out reps))
                 await Shell.Current.DisplayAlert("Warning", "Please enter number of repetitions performed as a whole number.", "OK");
             else if (!ValidWeight(out weight))
@@ -83,9 +83,9 @@ public partial class MainPageViewModel : BaseViewModel
             {
                 var time = DateTime.Now.ToString();
                 LiftService liftService = new LiftService(SelectedExercise.Name);
-                Lift lift = new Lift() { Reps = reps, RPE = RPEs[RPEIndex], Time = time, Weight = weight };
+                Lift lift = new Lift() { Reps = reps, RPE = SelectedRPE, Time = time, Weight = weight };
                 await liftService.SaveLiftAsync(lift);
-                await Shell.Current.DisplayAlert("Success", $"Successfully recorded lift:\n{SelectedExercise.Name}\nWeight: {weight}, Reps: {reps}, RPE: {RPEs[RPEIndex]}", "OK");
+                await Shell.Current.DisplayAlert("Success", $"Successfully recorded lift:\n{SelectedExercise.Name}\nWeight: {weight}, Reps: {reps}, RPE: {SelectedRPE}", "OK");
             }
         }
         catch (Exception ex)

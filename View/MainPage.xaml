@@ -55,7 +55,7 @@
                         VerticalOptions="CenterAndExpand"
                         ItemsSource="{Binding RPEs}"
                         Grid.Row="3"
-                        SelectedIndex="{Binding RPEIndex}"/>
+                        SelectedItem="{Binding SelectedRPE}"/>
 
                 <Picker Style="{StaticResource SmallPicker}"
                         Title="Exercise"
