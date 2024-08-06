@@ -62,10 +62,11 @@ public partial class MainPageViewModel : BaseViewModel
     [RelayCommand]
     async Task RecordLiftAsync()
     {
+        if (IsBusy)
+            return;
+
         try
         {
-            if (IsBusy)
-                return;
             IsBusy = true;
             int reps;
             double weight;
