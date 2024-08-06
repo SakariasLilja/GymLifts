@@ -10,7 +10,7 @@ public partial class MainPageViewModel : BaseViewModel
     public Exercise SelectedExercise { get; set; }
     private bool ValidExercise => SelectedExercise != null;
 
-    public double[] RPEs { get; } = { 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10};
+    public double[] RPEs { get; } = { 10, 9.5, 9, 8.5, 8, 7.5, 7, 6.5, 6, 5.5, 5, 4.5, 4 };
     public double SelectedRPE { get; set; }
     private bool ValidRPE => SelectedRPE > 0.0;
 
