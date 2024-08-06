@@ -32,8 +32,8 @@
                           Title="Gym Lifts Tracker"
                           Route="MainPage"/> 
         </Tab>
-        <Tab Title="Profiles"
-             Icon="profiles.png">
+        <Tab Title="Manage"
+             Icon="graph.png">
             <ShellContent ContentTemplate="{DataTemplate view:ProfilePage}"
                           Title="Profiles"
                           Route="ProfilePage"/>

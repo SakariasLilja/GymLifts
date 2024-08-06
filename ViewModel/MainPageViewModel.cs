@@ -7,9 +7,20 @@ public partial class MainPageViewModel : BaseViewModel
     ExerciseService exerciseService;
 
     public ObservableCollection<Exercise> Exercises { get; } = new ();
-    public float[] RPEs { get; set; } = { 4, 4.5f, 5, 5.5f, 6, 6.5f, 7, 7.5f, 8, 8.5f, 9, 9.5f, 10};
+    public Exercise SelectedExercise { get; set; }
+    private bool ValidExercise => SelectedExercise != null;
+
+    public double[] RPEs { get; } = { 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10};
+    public int RPEIndex { get; set; }
+    private bool ValidRPE => RPEIndex >= 0;
+
     public string Reps { get; set; } = "";
+    private int reps;
+    private bool ValidReps => int.TryParse(Reps, out reps);
+
     public string Weight { get; set; } = "";
+    private double weight;
+    private bool ValidWeight => double.TryParse(Weight, out weight);
 
     public MainPageViewModel(ExerciseService exerciseService)
     {
