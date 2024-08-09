@@ -14,6 +14,8 @@ public partial class ManageLiftsViewModel : BaseViewModel
     public string SelectedYAxis { get; set; }
     private bool ValidYAxis => SelectedYAxis != null;
 
+    private bool ValidAttributes => ValidExercise && ValidYAxis;
+
     ExerciseService exerciseService;
     public ManageLiftsViewModel(ExerciseService exerciseService) 
     {
@@ -46,6 +48,21 @@ public partial class ManageLiftsViewModel : BaseViewModel
             Debug.WriteLine(ex);
         }
         finally { IsBusy = false; IsRefreshing = false; }
+    }
+
+    [RelayCommand]
+    async Task SetGraph()
+    {
+        ISeries[] NewSeries = new ISeries[]
+        {
+            new LineSeries<double>
+            {
+                Values = new double[] { 1, 2, 3, 4, 5 },
+                Fill = null
+            }
+        };
+
+        Series = NewSeries;
     }
 
     public ISeries[] Series { get; set; }
