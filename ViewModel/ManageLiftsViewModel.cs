@@ -14,6 +14,8 @@ public partial class ManageLiftsViewModel : BaseViewModel
         this.exerciseService = exerciseService;
         Title = "Manage Lifts and Exercises";
     }
+    [ObservableProperty]
+    bool isRefreshing;
 
     [RelayCommand]
     public async Task GetExercisesAsync()
@@ -27,6 +29,7 @@ public partial class ManageLiftsViewModel : BaseViewModel
                 return;
 
             IsBusy = true;
+            IsRefreshing = true;
             var exercises = await exerciseService.GetExercises();
 
             foreach (var exercise in exercises)
@@ -36,7 +39,7 @@ public partial class ManageLiftsViewModel : BaseViewModel
         {
             Debug.WriteLine(ex);
         }
-        finally { IsBusy = false; }
+        finally { IsBusy = false; IsRefreshing = false; }
     }
 
     public ISeries[] Series { get; set; }
