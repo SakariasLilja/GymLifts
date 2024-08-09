@@ -15,9 +15,39 @@
         <ScrollView>
             <Grid RowDefinitions="*,*,*"
                   Margin="5,30,5,8">
-                
-                <Label Text="Hello"
-                       Style="{StaticResource LargeLabel}"/>
+
+                <Grid ColumnDefinitions="*,*,*"
+                      RowDefinitions="*,*"
+                      RowSpacing="10">
+                    
+                    <Picker Style="{StaticResource SmallPicker}"
+                            ItemsSource="{Binding Exercises}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding SelectedExercise}"
+                            Title="Exercise"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            VerticalOptions="Center"/>
+
+                    <Picker Style="{StaticResource SmallPicker}"
+                            ItemsSource="{Binding YAxis}"
+                            SelectedItem="{Binding SelectedYAxis}"
+                            Title="Display Data"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            VerticalOptions="Center"/>
+
+                    <Button Style="{StaticResource ButtonOutline}"
+                            Text="Manage Exercises"
+                            Grid.ColumnSpan="3"
+                            FontAttributes="Bold"
+                            FontSize="32"
+                            VerticalOptions="StartAndExpand"
+                            HeightRequest="120"
+                            CornerRadius="15"
+                            Margin="5,0,5,0"/>
+
+                </Grid>
         
                 <lvc:CartesianChart Grid.Row="1"
                                     Grid.RowSpan="2"
@@ -26,7 +56,8 @@
                 <ActivityIndicator IsVisible="{Binding IsBusy}"
                                    Style="{StaticResource DefaultActivityIndicator}"
                                    IsRunning="{Binding IsBusy}"
-                                   Grid.RowSpan="3"/>
+                                   Grid.Row="1"
+                                   Grid.RowSpan="2"/>
             </Grid>
         </ScrollView>
     </RefreshView>

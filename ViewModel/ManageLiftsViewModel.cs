@@ -7,6 +7,12 @@ namespace GymLifts.ViewModel;
 public partial class ManageLiftsViewModel : BaseViewModel
 {
     public ObservableCollection<Exercise> Exercises { get; } = new ();
+    public Exercise SelectedExercise { get; set; }
+    private bool ValidExercise => SelectedExercise != null;
+
+    public string[] YAxis { get; } = { "Weight", "Reps", "RPE" };
+    public string SelectedYAxis { get; set; }
+    private bool ValidYAxis => SelectedYAxis != null;
 
     ExerciseService exerciseService;
     public ManageLiftsViewModel(ExerciseService exerciseService) 
