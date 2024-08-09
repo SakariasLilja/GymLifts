@@ -10,13 +10,25 @@
              ios:Page.UseSafeArea="True"
              Title="{Binding Title}">
 
-    <Grid RowDefinitions="*,*,*"
-          Margin="5,30,5,8">
-        <Label Text="Hello"
-               Style="{StaticResource LargeLabel}"/>
-        <lvc:CartesianChart Grid.Row="1"
-                            Grid.RowSpan="2"
-                            Series="{Binding Series}"/>
-    </Grid>
-    
+    <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                 RefreshColor="{AppThemeBinding Dark={StaticResource DarkPrimary}, Light={StaticResource Primary}}">
+        <ScrollView>
+            <Grid RowDefinitions="*,*,*"
+                  Margin="5,30,5,8">
+                
+                <Label Text="Hello"
+                       Style="{StaticResource LargeLabel}"/>
+        
+                <lvc:CartesianChart Grid.Row="1"
+                                    Grid.RowSpan="2"
+                                    Series="{Binding Series}"/>
+        
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                   Style="{StaticResource DefaultActivityIndicator}"
+                                   IsRunning="{Binding IsBusy}"
+                                   Grid.RowSpan="3"/>
+            </Grid>
+        </ScrollView>
+    </RefreshView>
+
 </ContentPage>
