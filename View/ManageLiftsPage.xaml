@@ -10,46 +10,38 @@
              ios:Page.UseSafeArea="True"
              Title="{Binding Title}">
 
-    <Grid>
-        <ScrollView>
-            <Grid RowDefinitions="*,*,*"
-                  Margin="5,30,5,8">
+    <Grid RowDefinitions="*,*,*,*,*,*,*">
 
-                <Grid RowDefinitions="*,*"
-                      RowSpacing="10">
+        <Picker Style="{StaticResource SmallPicker}"
+                ItemsSource="{Binding Exercises}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedExercise}"
+                Title="Select Exercise"
+                FontSize="28"
+                FontAttributes="Bold"
+                VerticalOptions="Start"
+                SelectedIndexChanged="RetrieveLifts"
+                Margin="4,12,4,0"
+                Grid.Row="0"/>
 
-                    <Picker Style="{StaticResource SmallPicker}"
-                            ItemsSource="{Binding Exercises}"
-                            ItemDisplayBinding="{Binding Name}"
-                            SelectedItem="{Binding SelectedExercise}"
-                            Title="Exercise"
-                            Grid.Row="1"
-                            VerticalOptions="Center"
-                            SelectedIndexChanged="RetrieveLifts"/>
+        <lvc:CartesianChart Grid.Row="1"
+                            Grid.RowSpan="5"
+                            Series="{Binding Series}"
+                            ZoomMode="X"/>
 
-                    <Button Style="{StaticResource ButtonOutline}"
-                            Text="Manage Exercises"
-                            FontAttributes="Bold"
-                            FontSize="32"
-                            VerticalOptions="StartAndExpand"
-                            HeightRequest="120"
-                            CornerRadius="15"
-                            Margin="5,0,5,0"/>
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           Style="{StaticResource DefaultActivityIndicator}"
+                           IsRunning="{Binding IsBusy}"
+                           Grid.Row="1"
+                           Grid.RowSpan="5"/>
 
-                </Grid>
-        
-                <lvc:CartesianChart Grid.Row="1"
-                                    Grid.RowSpan="2"
-                                    Series="{Binding Series}"
-                                    ZoomMode="X"/>
-        
-                <ActivityIndicator IsVisible="{Binding IsBusy}"
-                                   Style="{StaticResource DefaultActivityIndicator}"
-                                   IsRunning="{Binding IsBusy}"
-                                   Grid.Row="1"
-                                   Grid.RowSpan="2"/>
-            </Grid>
-        </ScrollView>
+        <Button Style="{StaticResource ButtonOutline}"
+                Text="Manage Exercises"
+                FontSize="32"
+                VerticalOptions="FillAndExpand"
+                CornerRadius="15"
+                Grid.Row="6"
+                Margin="12,16,12,8"/>
     </Grid>
 
 </ContentPage>
