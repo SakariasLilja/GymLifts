@@ -38,12 +38,6 @@
                           Title="Manage Lifts"
                           Route="ManageLiftsPage"/>
         </Tab>
-        <Tab Title="Profiles"
-             Icon="profiles.png">
-            <ShellContent ContentTemplate="{DataTemplate view:ProfilePage}"
-                          Title="Profiles"
-                          Route="ProfilePage"/>
-        </Tab>
     </TabBar>
     
 
