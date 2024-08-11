@@ -27,7 +27,8 @@
                             Title="Exercise"
                             Grid.Row="1"
                             Grid.ColumnSpan="2"
-                            VerticalOptions="Center"/>
+                            VerticalOptions="Center"
+                            SelectedIndexChanged="RetrieveLifts"/>
 
                     <Picker Style="{StaticResource SmallPicker}"
                             ItemsSource="{Binding YAxis}"
