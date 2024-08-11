@@ -10,8 +10,7 @@
              ios:Page.UseSafeArea="True"
              Title="{Binding Title}">
 
-    <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                 RefreshColor="{AppThemeBinding Dark={StaticResource DarkPrimary}, Light={StaticResource Primary}}">
+    <Grid>
         <ScrollView>
             <Grid RowDefinitions="*,*,*"
                   Margin="5,30,5,8">
@@ -61,6 +60,6 @@
                                    Grid.RowSpan="2"/>
             </Grid>
         </ScrollView>
-    </RefreshView>
+    </Grid>
 
 </ContentPage>
