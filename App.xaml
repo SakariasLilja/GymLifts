@@ -9,7 +9,7 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <Color x:Key="Primary">#350059</Color>
+            <Color x:Key="Primary">#25003F</Color>
             <Color x:Key="DarkPrimary">#25003F</Color>
 
             <Color x:Key="Background">#FFFDFC</Color>
