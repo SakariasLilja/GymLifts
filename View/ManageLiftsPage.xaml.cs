@@ -16,4 +16,10 @@ public partial class ManageLiftsPage : ContentPage
 
 		await viewModel.GetExercisesAsync();
     }
+
+	private async void RetrieveLifts(object sender, EventArgs e)
+	{
+		await viewModel.RetrieveLiftsAsync();
+		await viewModel.SetGraph();
+	}
 }
