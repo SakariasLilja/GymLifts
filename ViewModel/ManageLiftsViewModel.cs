@@ -38,7 +38,7 @@ public partial class ManageLiftsViewModel : BaseViewModel
                 Stroke = gradient,
                 GeometryStroke = gradient,
                 Mapping = (lift, index) => new (index, lift.Weight),
-                YToolTipLabelFormatter = p => $"{p.Model?.Weight} kg  {p.Model?.Reps} reps  RPE: {p.Model?.RPE}",
+                YToolTipLabelFormatter = p => $"{p.Model?.Time}\n{p.Model?.Weight} kg\n{p.Model?.Reps} reps\nRPE: {p.Model?.RPE}",
                 Fill = null
             }
         };
