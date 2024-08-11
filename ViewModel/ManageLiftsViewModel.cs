@@ -23,6 +23,8 @@ public partial class ManageLiftsViewModel : BaseViewModel
 
     private ObservableCollection<Lift> Lifts { get; set; } = new ();
 
+    public ObservableCollection<ISeries> Series { get; set; }
+
     ExerciseService exerciseService;
     public ManageLiftsViewModel(ExerciseService exerciseService) 
     {
@@ -94,5 +96,4 @@ public partial class ManageLiftsViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
-    public ObservableCollection<ISeries> Series { get; set; }
 }
