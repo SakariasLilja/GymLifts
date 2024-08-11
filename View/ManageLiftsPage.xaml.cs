@@ -15,11 +15,11 @@ public partial class ManageLiftsPage : ContentPage
         base.OnAppearing();
 
 		await viewModel.GetExercisesAsync();
+		await viewModel.RetrieveLiftsAsync();
     }
 
 	private async void RetrieveLifts(object sender, EventArgs e)
 	{
 		await viewModel.RetrieveLiftsAsync();
-		await viewModel.SetGraph();
 	}
 }
