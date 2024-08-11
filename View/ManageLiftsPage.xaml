@@ -15,31 +15,20 @@
             <Grid RowDefinitions="*,*,*"
                   Margin="5,30,5,8">
 
-                <Grid ColumnDefinitions="*,*,*"
-                      RowDefinitions="*,*"
+                <Grid RowDefinitions="*,*"
                       RowSpacing="10">
-                    
+
                     <Picker Style="{StaticResource SmallPicker}"
                             ItemsSource="{Binding Exercises}"
                             ItemDisplayBinding="{Binding Name}"
                             SelectedItem="{Binding SelectedExercise}"
                             Title="Exercise"
                             Grid.Row="1"
-                            Grid.ColumnSpan="2"
                             VerticalOptions="Center"
                             SelectedIndexChanged="RetrieveLifts"/>
 
-                    <Picker Style="{StaticResource SmallPicker}"
-                            ItemsSource="{Binding YAxis}"
-                            SelectedItem="{Binding SelectedYAxis}"
-                            Title="Display Data"
-                            Grid.Column="2"
-                            Grid.Row="1"
-                            VerticalOptions="Center"/>
-
                     <Button Style="{StaticResource ButtonOutline}"
                             Text="Manage Exercises"
-                            Grid.ColumnSpan="3"
                             FontAttributes="Bold"
                             FontSize="32"
                             VerticalOptions="StartAndExpand"
@@ -51,7 +40,8 @@
         
                 <lvc:CartesianChart Grid.Row="1"
                                     Grid.RowSpan="2"
-                                    Series="{Binding Series}"/>
+                                    Series="{Binding Series}"
+                                    ZoomMode="X"/>
         
                 <ActivityIndicator IsVisible="{Binding IsBusy}"
                                    Style="{StaticResource DefaultActivityIndicator}"
