@@ -16,12 +16,15 @@ public partial class ManageLiftsViewModel : BaseViewModel
 
     private bool ValidAttributes => ValidExercise && ValidYAxis;
 
+    private List<Lift> Lifts { get; set; } = new List<Lift> ();
+
     ExerciseService exerciseService;
     public ManageLiftsViewModel(ExerciseService exerciseService) 
     {
         this.exerciseService = exerciseService;
         Title = "Manage Lifts and Exercises";
     }
+
     [ObservableProperty]
     bool isRefreshing;
 
@@ -37,7 +40,6 @@ public partial class ManageLiftsViewModel : BaseViewModel
                 return;
 
             IsBusy = true;
-            IsRefreshing = true;
             var exercises = await exerciseService.GetExercises();
 
             foreach (var exercise in exercises)
@@ -50,28 +52,50 @@ public partial class ManageLiftsViewModel : BaseViewModel
         finally { IsBusy = false; IsRefreshing = false; }
     }
 
-    [RelayCommand]
-    async Task SetGraph()
+    public async Task RetrieveLiftsAsync()
     {
+        if (IsBusy) 
+            return;
+
+        try
+        {
+            IsBusy = true;
+
+            if (ValidExercise)
+            {
+                LiftService liftService = new LiftService(SelectedExercise.Name);
+                var lifts = await liftService.GetLiftsAsync();
+                Lifts = lifts;
+            }
+            else { Lifts.Clear(); }
+        }
+
+        catch (Exception) { Lifts.Clear(); }
+
+        finally { IsBusy = false; }
+    }
+
+    public async Task SetGraph()
+    {
+        if (IsBusy)
+            return;
+
+        IsBusy = true;
+
         ISeries[] NewSeries = new ISeries[]
         {
             new LineSeries<double>
             {
-                Values = new double[] { 1, 2, 3, 4, 5 },
+                Values = Lifts.Select(l => l.Weight).ToArray(),
                 Fill = null
             }
         };
 
         Series = NewSeries;
+
+        IsBusy = false;
     }
 
-    public ISeries[] Series { get; set; }
-        = new ISeries[]
-        {
-            new LineSeries<double>
-            {
-                Values = new double[] { 2, 1, 3, 5, 3, 4, 6 },
-                Fill = null
-            }
-        };
+    [ObservableProperty]
+    public ISeries[] series = { };
 }
