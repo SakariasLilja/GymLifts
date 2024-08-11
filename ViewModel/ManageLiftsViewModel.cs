@@ -44,9 +44,6 @@ public partial class ManageLiftsViewModel : BaseViewModel
         };
     }
 
-    [ObservableProperty]
-    bool isRefreshing;
-
     [RelayCommand]
     public async Task GetExercisesAsync()
     {
@@ -68,7 +65,7 @@ public partial class ManageLiftsViewModel : BaseViewModel
         {
             Debug.WriteLine(ex);
         }
-        finally { IsBusy = false; IsRefreshing = false; }
+        finally { IsBusy = false; }
     }
 
     public async Task RetrieveLiftsAsync()
