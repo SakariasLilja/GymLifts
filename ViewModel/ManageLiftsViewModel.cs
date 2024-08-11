@@ -1,28 +1,47 @@
 ﻿using GymLifts.Services;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
+using SkiaSharp;
 
 namespace GymLifts.ViewModel;
 
 public partial class ManageLiftsViewModel : BaseViewModel
 {
+    private static readonly SKColor lineColor = new(255, 222, 173);
+    private static readonly SKColor fillColor = new(0, 0, 0);
+    private static readonly SKColor fadeColor = new(76, 64, 51);
+
+    private static readonly int strokeWidth = 5;
+
+    private static readonly LiveChartsCore.SkiaSharpView.Painting.LinearGradientPaint gradient =
+        new LiveChartsCore.SkiaSharpView.Painting.LinearGradientPaint(new[] { fadeColor, lineColor })
+        { StrokeThickness = strokeWidth };
+
     public ObservableCollection<Exercise> Exercises { get; } = new ();
     public Exercise SelectedExercise { get; set; }
     private bool ValidExercise => SelectedExercise != null;
 
-    public string[] YAxis { get; } = { "Weight", "Reps", "RPE" };
-    public string SelectedYAxis { get; set; }
-    private bool ValidYAxis => SelectedYAxis != null;
-
-    private bool ValidAttributes => ValidExercise && ValidYAxis;
-
-    private List<Lift> Lifts { get; set; } = new List<Lift> ();
+    private ObservableCollection<Lift> Lifts { get; set; } = new ();
 
     ExerciseService exerciseService;
     public ManageLiftsViewModel(ExerciseService exerciseService) 
     {
         this.exerciseService = exerciseService;
         Title = "Manage Lifts and Exercises";
+
+        Series = new ObservableCollection<ISeries>
+        {
+            new LineSeries<Lift>
+            {
+                Values = Lifts,
+                GeometrySize = 2 * strokeWidth,
+                Stroke = gradient,
+                GeometryStroke = gradient,
+                Mapping = (lift, index) => new (index, lift.Weight),
+                YToolTipLabelFormatter = p => $"{p.Model?.Weight} kg  {p.Model?.Reps} reps  RPE: {p.Model?.RPE}",
+                Fill = null
+            }
+        };
     }
 
     [ObservableProperty]
@@ -65,7 +84,10 @@ public partial class ManageLiftsViewModel : BaseViewModel
             {
                 LiftService liftService = new LiftService(SelectedExercise.Name);
                 var lifts = await liftService.GetLiftsAsync();
-                Lifts = lifts;
+                Lifts.Clear();
+
+                foreach (var lift in lifts)
+                    Lifts.Add(lift);
             }
             else { Lifts.Clear(); }
         }
@@ -75,27 +97,5 @@ public partial class ManageLiftsViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
-    public async Task SetGraph()
-    {
-        if (IsBusy)
-            return;
-
-        IsBusy = true;
-
-        ISeries[] NewSeries = new ISeries[]
-        {
-            new LineSeries<double>
-            {
-                Values = Lifts.Select(l => l.Weight).ToArray(),
-                Fill = null
-            }
-        };
-
-        Series = NewSeries;
-
-        IsBusy = false;
-    }
-
-    [ObservableProperty]
-    public ISeries[] series = { };
+    public ObservableCollection<ISeries> Series { get; set; }
 }
