@@ -32,6 +32,8 @@ public partial class ManageExercisesViewModel : BaseViewModel
 
             var exercises = await exerciseService.GetExercises();
 
+            Exercises.Clear();
+
             foreach (var exercise in exercises)
                 Exercises.Add(exercise);
         }
