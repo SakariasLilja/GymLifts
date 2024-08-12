@@ -48,4 +48,10 @@ public partial class ManageExercisesViewModel : BaseViewModel
             IsRefreshing = false;
         }
     }
+
+    [RelayCommand]
+    async Task GoToAddExerciseAsync()
+    {
+        await Shell.Current.GoToAsync(nameof(CreateExercise), true);
+    }
 }
