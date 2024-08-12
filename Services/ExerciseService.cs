@@ -8,7 +8,7 @@ public class ExerciseService
 
     private readonly string savedExercisesPath = Path.Combine(FileSystem.AppDataDirectory, "saved_exercises.json");
 
-    private async Task<List<Exercise>> GetDefaultExercises()
+    public async Task<List<Exercise>> GetDefaultExercises()
     {
         List<Exercise> output = new List<Exercise> ();
         try
