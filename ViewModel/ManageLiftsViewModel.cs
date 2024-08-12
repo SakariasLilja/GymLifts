@@ -29,7 +29,7 @@ public partial class ManageLiftsViewModel : BaseViewModel
     public ManageLiftsViewModel(ExerciseService exerciseService) 
     {
         this.exerciseService = exerciseService;
-        Title = "Manage Lifts and Exercises";
+        Title = "Manage Lifts";
 
         Series = new ObservableCollection<ISeries>
         {
