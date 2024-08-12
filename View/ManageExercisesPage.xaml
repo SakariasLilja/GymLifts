@@ -8,12 +8,35 @@
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="True"
              Title="{Binding Title}">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="*,6*">
+
+        <Button Style="{StaticResource ButtonOutline}"
+                Text="Register New Exercise"
+                VerticalOptions="FillAndExpand"
+                Margin="8,25,8,10"
+                FontAttributes="Bold"
+                FontSize="30"
+                CornerRadius="20"/>
+
+        <Grid Margin="8,0,8,10"
+              Grid.Row="1">
+
+            <RefreshView IsEnabled="{Binding IsRefreshing}"
+                         IsRefreshing="{Binding IsRefreshing}"
+                         Command="{Binding GetExercisesCommand}">
+
+                <CollectionView ItemsSource="{Binding Exercises}">
+                </CollectionView>
+                
+            </RefreshView>
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               Style="{StaticResource DefaultActivityIndicator}"/>
+
+        </Grid>
+
+    </Grid>
     
 </ContentPage>
