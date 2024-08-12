@@ -15,6 +15,9 @@ public partial class ManageExercisesViewModel : BaseViewModel
         this.exerciseService = exerciseService;
     }
 
+    [ObservableProperty]
+    bool isRefreshing;
+
     public async Task GetExercisesAsync()
     {
         if (IsBusy)
@@ -39,6 +42,7 @@ public partial class ManageExercisesViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
+            IsRefreshing = false;
         }
     }
 }
