@@ -18,6 +18,7 @@ public partial class ManageExercisesViewModel : BaseViewModel
     [ObservableProperty]
     bool isRefreshing;
 
+    [RelayCommand]
     public async Task GetExercisesAsync()
     {
         if (IsBusy)
