@@ -96,4 +96,10 @@ public partial class ManageLiftsViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
+    [RelayCommand]
+    async Task GoToManageExercisesAsync()
+    {
+        await Shell.Current.GoToAsync(nameof(ManageExercisesPage), true);
+    }
+
 }
