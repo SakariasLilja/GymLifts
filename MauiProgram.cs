@@ -30,6 +30,7 @@ namespace GymLifts
             builder.Services.AddSingleton<MainPageViewModel>();
             builder.Services.AddSingleton<CreateExerciseViewModel>();
             builder.Services.AddSingleton<ManageLiftsViewModel>();
+            builder.Services.AddSingleton<ManageExercisesViewModel>();
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<CreateExercise>();
