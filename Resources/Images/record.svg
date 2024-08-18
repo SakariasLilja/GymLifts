@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="-2.6675 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-0.0008, 0)">
+    <g transform="matrix(1.33333337306976, 0, 0, 1.33333337306976, 0, 0)">
+      <g id="Layer_1" transform="translate(-6, -4)" style="enable-background:new 0 0 32 32">
+        <g id="New">
+          <g>
+            <path d="M19, 4L7, 4C6.4, 4 6, 4.4 6, 5L6, 27C6, 27.6 6.4, 28 7, 28L25, 28C25.6, 28 26, 27.6 26, 27L26, 11L19, 4zM24, 26L8, 26L8, 6L18, 6L18, 11C18, 11.6 18.4, 12 19, 12L24, 12L24, 26z" fill="#727272" class="Black" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(-0.0008, 0)">
+    <g transform="matrix(1.33333337306976, 0, 0, 1.33333337306976, 0, 0)">
+      <g id="Layer_1" transform="translate(-6, -4)" style="enable-background:new 0 0 32 32">
+        <g id="New">
+          <g>
+            <path d="M19, 4L7, 4C6.4, 4 6, 4.4 6, 5L6, 27C6, 27.6 6.4, 28 7, 28L25, 28C25.6, 28 26, 27.6 26, 27L26, 11L19, 4zM24, 26L8, 26L8, 6L18, 6L18, 11C18, 11.6 18.4, 12 19, 12L24, 12L24, 26z" fill="#727272" class="Black" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(5.33250045776367, 10)" style="enable-background:new 0 0 16 16">
+    <g id="Add_1_">
+      <path d="M15, 6L10, 6L10, 1C10, 0.4 9.5, 0 9, 0L7, 0C6.5, 0 6, 0.4 6, 1L6, 6L1, 6C0.5, 6 0, 6.4 0, 7L0, 9C0, 9.6 0.5, 10 1, 10L6, 10L6, 15C6, 15.6 6.5, 16 7, 16L9, 16C9.5, 16 10, 15.6 10, 15L10, 10L15, 10C15.5, 10 16, 9.6 16, 9L16, 7C16, 6.4 15.5, 6 15, 6z" fill="#727272" class="Black" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="color-0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.777787, 0, 0, 2.169495, 706.855347, -290.590393)" bx:pinned="true">
+      <stop style="stop-color: rgb(255, 222, 173)"/>
+    </linearGradient>
+  </defs>
+  <rect x="138.48" y="216.018" width="223.04" height="67.965" style="stroke: rgb(0, 0, 0); fill: rgb(255, 222, 173); stroke-width: 0px;" transform="matrix(1, 0, 0, 1, 0, -7.105427357601002e-15)"/>
+  <rect x="22.571" y="175.376" width="47.569" height="152.816" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="16.055" ry="16.055" transform="matrix(1, 0, 0, 1, 0, -7.105427357601002e-15)"/>
+  <rect x="73.802" y="135.834" width="57.083" height="228.332" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="16.055" ry="16.055" transform="matrix(1, 0, 0, 1, 0, -7.105427357601002e-15)"/>
+  <rect x="429.86" y="175.376" width="47.569" height="152.816" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="16.055" ry="16.055" transform="matrix(1, 0, 0, 1, 0, -7.105427357601002e-15)"/>
+  <rect x="369.115" y="135.834" width="57.083" height="228.332" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="16.055" ry="16.055" transform="matrix(1, 0, 0, 1, 0, -7.105427357601002e-15)"/>
+</svg>

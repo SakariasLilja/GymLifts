@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="color-0" gradientUnits="userSpaceOnUse" bx:pinned="true">
+      <stop style="stop-color: rgb(255, 222, 173)"/>
+    </linearGradient>
+  </defs>
+  <rect x="126.73" y="234.659" width="246.54" height="30.682" style="stroke: rgb(0, 0, 0); fill: rgb(255, 222, 173); stroke-width: 0px;"/>
+  <rect x="473.164" y="234.659" width="26.836" height="30.682" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;"/>
+  <rect y="234.659" width="26.836" height="30.682" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;"/>
+  <rect x="38.728" y="197.376" width="32.109" height="105.247" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="8.919" ry="8.919"/>
+  <rect x="429.163" y="197.376" width="32.109" height="105.247" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="8.919" ry="8.919"/>
+  <rect x="82.729" y="179.241" width="32.109" height="141.519" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="8.919" ry="8.919"/>
+  <rect x="385.162" y="179.241" width="32.109" height="141.519" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="8.919" ry="8.919"/>
+</svg>
