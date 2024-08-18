@@ -5,7 +5,8 @@ public class LiftService
     private string exerciseName;
     List<Lift> lifts = new List<Lift>();
     private string FileName => exerciseName.Replace(' ', '_');
-    private string FilePath => Path.Combine(FileSystem.AppDataDirectory, FileName);
+    private string DirectoryPath => Path.Combine(FileSystem.AppDataDirectory, "SLLiftsTracker");
+    private string FilePath => Path.Combine(DirectoryPath, FileName);
     public LiftService(string exerciseName) 
     { 
         this.exerciseName = exerciseName; 
@@ -26,6 +27,7 @@ public class LiftService
     public async Task SaveLiftAsync(Lift lift)
     {
         try { await GetLiftsAsync(); }
+        catch (DirectoryNotFoundException) { Directory.CreateDirectory(DirectoryPath); }
         catch (FileNotFoundException) { }
         finally
         {

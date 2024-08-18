@@ -6,7 +6,8 @@ public class ExerciseService
 
     List<Exercise> exerciseList = new ();
 
-    private readonly string savedExercisesPath = Path.Combine(FileSystem.AppDataDirectory, "saved_exercises.json");
+    private string DirectoryPath => Path.Combine(FileSystem.AppDataDirectory, "SLLiftsTracker");
+    private string FilePath => Path.Combine(DirectoryPath, "saved_exercises.json");
 
     public async Task<List<Exercise>> GetDefaultExercises()
     {
@@ -29,11 +30,12 @@ public class ExerciseService
 
         try
         {
-            using var stream = File.OpenRead(savedExercisesPath);
+            using var stream = File.OpenRead(FilePath);
             using var reader = new StreamReader(stream);
             var contents = await reader.ReadToEndAsync();
             output = JsonSerializer.Deserialize<List<Exercise>>(contents);
         }
+        catch (DirectoryNotFoundException) { Directory.CreateDirectory(DirectoryPath); }
         catch (FileNotFoundException) { }
         catch (Exception ex) 
         {
@@ -69,7 +71,7 @@ public class ExerciseService
 
         var serializedExercises = JsonSerializer.Serialize(savedExercises);
 
-        using FileStream outputStream = File.OpenWrite(savedExercisesPath);
+        using FileStream outputStream = File.OpenWrite(FilePath);
         using StreamWriter writer = new StreamWriter(outputStream);
         await writer.WriteAsync(serializedExercises);
     }
