@@ -31,27 +31,42 @@
                                 IsVisible="{Binding IsNotBusy}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Exercise">
-                            <Grid ColumnDefinitions="80,*"
-                                  ColumnSpacing="10"
-                                  HeightRequest="80"
-                                  Margin="0,4,0,0">
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItem Text="Delete"
+                                               IconImageSource="delete.png"
+                                               BackgroundColor="#F2D1A4"
+                                               CommandParameter="{Binding .}"/>
+
+                                    <SwipeItem Text="Manage"
+                                               IconImageSource="edit.png"
+                                               BackgroundColor="NavajoWhite"
+                                               CommandParameter="{Binding .}"/>
+                                </SwipeView.RightItems>
                                 
-                                <Image Source="{Binding ImageFile}"
-                                       Aspect="AspectFit"
-                                       Margin="5"/>
+                                <Grid ColumnDefinitions="80,*"
+                                      ColumnSpacing="10"
+                                      HeightRequest="80"
+                                      Margin="0,4,0,0"
+                                      BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource Background}}">
+                                
+                                    <Image Source="{Binding ImageFile}"
+                                           Aspect="AspectFit"
+                                           Margin="5"/>
 
-                                <Label Grid.Column="1"
-                                       Text="{Binding Name}"
-                                       VerticalOptions="Center"
-                                       Style="{StaticResource MediumLabel}"
-                                       FontSize="22"/>
+                                    <Label Grid.Column="1"
+                                           Text="{Binding Name}"
+                                           VerticalOptions="Center"
+                                           Style="{StaticResource MediumLabel}"
+                                           FontSize="22"/>
 
-                                <Border Stroke="NavajoWhite"
-                                        BackgroundColor="Transparent"
-                                        Grid.ColumnSpan="2"
-                                        StrokeThickness="2"/>
+                                    <Border Stroke="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource LabelText}}"
+                                            BackgroundColor="Transparent"
+                                            Grid.ColumnSpan="2"
+                                            StrokeThickness="2"/>
 
-                            </Grid>
+                                </Grid>
+                            </SwipeView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
