@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="color-0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(207.991776, 0, 0, 0.305105, -76716.195312, 126.458029)" bx:pinned="true">
+      <stop style="stop-color: rgb(255, 222, 173);"/>
+    </linearGradient>
+  </defs>
+  <rect x="190.795" y="129.28" width="118.41" height="240.012" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" rx="4.911" ry="3.935" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="88.64" y="414.505" width="322.721" height="31.853" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="15.051" ry="15.051" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="151.007" y="344.107" width="197.989" height="25.185" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="9.233" ry="11.9" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="67.001" y="178.097" width="63.82" height="113.828" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="20.48" ry="20.48" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="369.179" y="178.097" width="63.82" height="113.828" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" rx="20.48" ry="20.48" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="219.887" y="58.147" width="9" height="71.133" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="271.593" y="58.147" width="10" height="71.133" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <path style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" transform="matrix(0.5581680536270142, 0, 0, 0.5581680536270142, -170.73831176757812, -72.53633117675781)" d="M 479.129 304 A 69.871 69.871 0 0 1 549 234.129 L 549 250.253 A 53.747 53.747 0 0 0 495.253 304 Z" bx:shape="pie 549 304 53.747 69.871 270 360 1@3f9071a1"/>
+  <path style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(0, 0.558168, -0.558168, 0, 533.989978, -209.286793)" d="M 479.129 304 A 69.871 69.871 0 0 1 549 234.129 L 549 250.253 A 53.747 53.747 0 0 0 495.253 304 Z" bx:shape="pie 549 304 53.747 69.871 270 360 1@3f9071a1"/>
+  <rect x="157.632" y="53.642" width="55.368" height="18" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" rx="8.627" ry="7.937" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="135.696" y="58.147" width="228.611" height="9" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="288.48" y="53.642" width="55.368" height="18" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" rx="8.627" ry="7.937" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="96.696" y="97.147" width="9" height="80.95" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="394.307" y="97.147" width="9" height="80.95" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="228.887" y="88.147" width="42.706" height="9" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+  <rect x="228.648" y="369.292" width="42.706" height="45.213" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(1, 0, 0, 1, 2.842170943040401e-14, 0)"/>
+</svg>

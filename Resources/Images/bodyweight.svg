@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="color-0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1, 0, 0, 1, -661.365723, -586.252602)" bx:pinned="true">
+      <stop style="stop-color: rgb(255, 222, 173);"/>
+    </linearGradient>
+  </defs>
+  <path d="M -259.625 -286.18 Q -250 -305.43 -240.375 -286.18 L -172.125 -149.68 Q -162.5 -130.43 -181.75 -130.43 L -318.25 -130.43 Q -337.5 -130.43 -327.875 -149.68 Z" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(-1, 0, 0, -1, 0, 0.000977)" bx:shape="triangle -337.5 -305.43 175 175 0.5 0.11 1@e015108e"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" cx="250" cy="79.312" rx="38.92" ry="38.92" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, -3.552713678800501e-15)"/>
+  <path d="M 114.352 124.265 Q 132.509 28.944 150.666 124.265 L 150.666 124.264 Q 168.823 219.585 132.509 219.585 L 132.509 219.585 Q 96.195 219.585 114.352 124.264 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" transform="matrix(-0.866025, -0.5, 0.5, -0.866025, 152.914246, 398.956091)" bx:shape="triangle 96.195 28.944 72.628 190.641 0.5 0.5 1@d4dd84f7"/>
+  <path d="M 349.334 124.265 Q 367.491 28.944 385.648 124.265 L 385.648 124.264 Q 403.805 219.585 367.491 219.585 L 367.491 219.585 Q 331.177 219.585 349.334 124.264 Z" style="stroke: rgb(0, 0, 0); fill: url('#color-0'); stroke-width: 0px;" transform="matrix(-0.866025, 0.5, -0.5, -0.866025, 780.09806, 148.95627)" bx:shape="triangle 331.177 28.944 72.628 190.641 0.5 0.5 1@2653c0f5"/>
+  <rect x="260.226" y="304.608" width="50" height="155" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" rx="29.42" ry="29.42" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, -3.552713678800501e-15)"/>
+  <rect x="189.774" y="304.608" width="50" height="155" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: url('#color-0');" rx="29.42" ry="29.42" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, -3.552713678800501e-15)"/>
+</svg>
