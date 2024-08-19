@@ -27,8 +27,8 @@
 
         <ImageButton Source="configure.png"
                      Grid.Column="1"
-                     Margin="0,32,8,0"
-                     VerticalOptions="Start"
+                     Margin="0,30,8,0"
+                     VerticalOptions="Center"
                      Command="{Binding GoToManageExercisesCommand}"/>
 
         <lvc:CartesianChart Grid.Row="1"
