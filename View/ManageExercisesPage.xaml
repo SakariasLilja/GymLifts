@@ -27,7 +27,33 @@
                          IsRefreshing="{Binding IsRefreshing}"
                          Command="{Binding GetExercisesCommand}">
 
-                <CollectionView ItemsSource="{Binding Exercises}">
+                <CollectionView ItemsSource="{Binding Exercises}"
+                                IsVisible="{Binding IsNotBusy}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Exercise">
+                            <Grid ColumnDefinitions="80,*"
+                                  ColumnSpacing="10"
+                                  HeightRequest="80"
+                                  Margin="0,4,0,0">
+                                
+                                <Image Source="{Binding ImageFile}"
+                                       Aspect="AspectFit"
+                                       Margin="5"/>
+
+                                <Label Grid.Column="1"
+                                       Text="{Binding Name}"
+                                       VerticalOptions="Center"
+                                       Style="{StaticResource MediumLabel}"
+                                       FontSize="22"/>
+
+                                <Border Stroke="NavajoWhite"
+                                        BackgroundColor="Transparent"
+                                        Grid.ColumnSpan="2"
+                                        StrokeThickness="2"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
                 </CollectionView>
                 
             </RefreshView>
