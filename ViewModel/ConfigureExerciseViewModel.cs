@@ -17,7 +17,7 @@ public partial class ConfigureExerciseViewModel : BaseViewModel
         if (IsBusy)
             return;
 
-        await Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync("..", true);
     }
 
 }
