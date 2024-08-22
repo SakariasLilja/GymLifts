@@ -53,6 +53,18 @@ public partial class ManageExercisesViewModel : BaseViewModel
     [RelayCommand]
     async Task GoToAddExerciseAsync()
     {
+        if (IsBusy)
+            return;
+
         await Shell.Current.GoToAsync(nameof(CreateExercise), true);
+    }
+
+    [RelayCommand]
+    async Task GoToConfigureExerciseAsync()
+    {
+        if (IsBusy)
+            return;
+
+        await Shell.Current.GoToAsync(nameof(ConfigureExercisePage), true);
     }
 }
