@@ -75,4 +75,20 @@ public class ExerciseService
         using StreamWriter writer = new StreamWriter(outputStream);
         await writer.WriteAsync(serializedExercises);
     }
+
+    public async Task DeleteExerciseAync(Exercise exercise)
+    {
+        var savedExercises = await GetSavedExercises();
+
+        var i = savedExercises.FindIndex(e => e.Name == exercise.Name);
+
+        if (i >= 0)
+            savedExercises.RemoveAt(i);
+
+        var serializedExercises = JsonSerializer.Serialize(savedExercises);
+
+        using var stream = File.OpenWrite(FilePath);
+        using var writer = new StreamWriter(stream);
+        await writer.WriteAsync(serializedExercises);
+    }
 }
