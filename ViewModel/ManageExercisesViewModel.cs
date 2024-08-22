@@ -60,11 +60,15 @@ public partial class ManageExercisesViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task GoToConfigureExerciseAsync()
+    async Task GoToConfigureExerciseAsync(Exercise exercise)
     {
-        if (IsBusy)
+        if (IsBusy || exercise is null)
             return;
 
-        await Shell.Current.GoToAsync(nameof(ConfigureExercisePage), true);
+        await Shell.Current.GoToAsync(nameof(ConfigureExercisePage), true, 
+            new Dictionary<string, object>
+            {
+                {"Exercise", exercise}
+            });
     }
 }
