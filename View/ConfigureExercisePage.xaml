@@ -7,6 +7,13 @@
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="True"
              x:DataType="viewmodel:ConfigureExerciseViewModel"
+             Shell.PresentationMode="Modal"
              Title="{Binding Exercise.Name}">
+
+    <Grid>
+        <Button Text="Done"
+                Style="{StaticResource ButtonOutline}"
+                Command="{Binding GoBackButtonCommand}"/>
+    </Grid>
     
 </ContentPage>
