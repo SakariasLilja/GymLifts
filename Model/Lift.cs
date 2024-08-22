@@ -2,7 +2,7 @@
 
 namespace GymLifts.Model;
 
-public class Lift
+public record Lift
 {
     public double Weight { get; set; }
     public int Reps { get; set; }
