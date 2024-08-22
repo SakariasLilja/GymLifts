@@ -39,4 +39,28 @@ public class LiftService
             await writer.WriteAsync(jsonString);
         }
     }
+
+    public async Task DeleteLiftAsync(Lift lift)
+    {
+        try { await GetLiftsAsync(); }
+        catch (DirectoryNotFoundException) { Directory.CreateDirectory(DirectoryPath); }
+        catch (FileNotFoundException) { }
+        finally
+        {
+            lifts?.Remove(lift);
+            var jsonString = JsonSerializer.Serialize(lifts);
+
+            using var stream = File.OpenWrite(FilePath);
+            using var writer = new StreamWriter(stream);
+            await writer.WriteAsync(jsonString);
+        }
+    }
+
+    public async Task DeleteLiftsAsync()
+    {
+        Directory.CreateDirectory(DirectoryPath);
+        using var stream = File.OpenWrite(FilePath);
+        using var writer = new StreamWriter(stream);
+        await writer.WriteAsync("");
+    }
 }
