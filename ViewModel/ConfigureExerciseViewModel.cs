@@ -11,4 +11,13 @@ public partial class ConfigureExerciseViewModel : BaseViewModel
     [ObservableProperty]
     bool isRefreshing;
 
+    [RelayCommand]
+    async Task GoBackButton()
+    {
+        if (IsBusy)
+            return;
+
+        await Shell.Current.GoToAsync("..");
+    }
+
 }
