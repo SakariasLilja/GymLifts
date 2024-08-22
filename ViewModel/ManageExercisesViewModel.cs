@@ -27,7 +27,6 @@ public partial class ManageExercisesViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            IsRefreshing = true;
 
             defaultExercises = await exerciseService.GetDefaultExercises();
 
