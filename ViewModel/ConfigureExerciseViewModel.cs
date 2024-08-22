@@ -14,9 +14,6 @@ public partial class ConfigureExerciseViewModel : BaseViewModel
     [RelayCommand]
     async Task GoBackButton()
     {
-        if (IsBusy)
-            return;
-
         await Shell.Current.GoToAsync("..", true);
     }
 
