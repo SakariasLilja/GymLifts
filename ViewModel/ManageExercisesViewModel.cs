@@ -70,4 +70,29 @@ public partial class ManageExercisesViewModel : BaseViewModel
                 {"Exercise", exercise}
             });
     }
+
+    [RelayCommand]
+    async Task DeleteExerciseAsync(Exercise exercise)
+    {
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsBusy = true;
+            var exerciseName = exercise.Name;
+
+            var liftService = new LiftService(exerciseName);
+            await liftService.DeleteLiftsAsync();
+
+            if (defaultExercises.Select(e => e.Name).Contains(exerciseName))
+                await exerciseService.DeleteExerciseAync(exercise);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            await Shell.Current.DisplayAlert("Warning", "Error deleting exercise files.", "OK");
+        }
+        finally { IsBusy = false; }
+    }
 }
