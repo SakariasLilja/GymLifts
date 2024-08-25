@@ -46,4 +46,27 @@ public partial class ConfigureExerciseViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
+    [RelayCommand]
+    async Task DeleteLiftAsync(Lift lift)
+    {
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsBusy = true;
+
+            var liftService = new LiftService(this.Exercise.Name);
+            await liftService.DeleteLiftAsync(lift);
+
+            Lifts.Remove(lift);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            await Shell.Current.DisplayAlert("Warning", "Error removing lift.", "OK");
+        }
+        finally { IsBusy = false; }
+    }
+
 }
