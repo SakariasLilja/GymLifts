@@ -20,7 +20,11 @@ public class LiftService
         using var stream = File.OpenRead(FilePath);
         using var reader = new StreamReader(stream);
         var contents = await reader.ReadToEndAsync();
-        lifts = JsonSerializer.Deserialize<List<Lift>>(contents);
+
+        //Stops error from occurring when JSON file is empty
+        if (contents != "")
+            lifts = JsonSerializer.Deserialize<List<Lift>>(contents);
+
         return lifts;
     }
     
