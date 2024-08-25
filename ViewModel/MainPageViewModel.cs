@@ -90,7 +90,7 @@ public partial class MainPageViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"{ex.Message}");
+            Debug.WriteLine(ex);
             await Shell.Current.DisplayAlert("Error", "Fatal error recording lift.", "OK");
         }
         finally { IsBusy = false; }
