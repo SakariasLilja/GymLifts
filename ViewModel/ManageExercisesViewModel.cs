@@ -80,13 +80,16 @@ public partial class ManageExercisesViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-            var exerciseName = exercise.Name;
 
-            var liftService = new LiftService(exerciseName);
+            var liftService = new LiftService(exercise.Name);
             await liftService.DeleteLiftsAsync();
 
-            if (defaultExercises.Select(e => e.Name).Contains(exerciseName))
+            if (defaultExercises.Contains(exercise))
+            {
                 await exerciseService.DeleteExerciseAync(exercise);
+                Exercises.Remove(exercise);
+            }
+                
         }
         catch (Exception ex)
         {
