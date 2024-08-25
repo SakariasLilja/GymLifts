@@ -77,12 +77,20 @@ public partial class ManageExercisesViewModel : BaseViewModel
         if (IsBusy)
             return;
 
+        string resultString = "Yes";
+        var result = await Shell.Current.DisplayActionSheet("Delete this exercise?", "Cancel", null, resultString);
+
+        if (result != resultString)
+            return;
+
         try
         {
             IsBusy = true;
 
             var liftService = new LiftService(exercise.Name);
             await liftService.DeleteLiftsAsync();
+
+            await Shell.Current.DisplayAlert("Success", "Successfully removed exercise and all its data.", "OK");
 
             if (!defaultExercises.Contains(exercise))
             {
