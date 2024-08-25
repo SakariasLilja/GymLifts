@@ -50,6 +50,9 @@ public class LiftService
             lifts?.Remove(lift);
             var jsonString = JsonSerializer.Serialize(lifts);
 
+            //Clears out all previous lifts correctly, as overwriting with fewer characters doesn't work
+            await DeleteLiftsAsync();
+
             using var stream = File.OpenWrite(FilePath);
             using var writer = new StreamWriter(stream);
             await writer.WriteAsync(jsonString);
@@ -59,8 +62,6 @@ public class LiftService
     public async Task DeleteLiftsAsync()
     {
         Directory.CreateDirectory(DirectoryPath);
-        using var stream = File.OpenWrite(FilePath);
-        using var writer = new StreamWriter(stream);
-        await writer.WriteAsync("");
+        await File.WriteAllTextAsync(FilePath, "");
     }
 }

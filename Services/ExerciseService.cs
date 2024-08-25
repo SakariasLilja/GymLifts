@@ -87,6 +87,9 @@ public class ExerciseService
 
         var serializedExercises = JsonSerializer.Serialize(savedExercises);
 
+        //Deleting contents of file as overwriting with fewer charcters doesn't work
+        await File.WriteAllTextAsync(FilePath, "");
+
         using var stream = File.OpenWrite(FilePath);
         using var writer = new StreamWriter(stream);
         await writer.WriteAsync(serializedExercises);
