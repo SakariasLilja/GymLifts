@@ -73,9 +73,10 @@
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItem Text="Delete"
-                                       BindingContext="{Binding .}"
+                                       CommandParameter="{Binding .}"
                                        IconImageSource="delete.png"
-                                       BackgroundColor="{StaticResource Primary}"/>
+                                       BackgroundColor="{StaticResource Primary}"
+                                       Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ConfigureExerciseViewModel}}, Path=DeleteLiftCommand}"/>
                         </SwipeView.RightItems>
 
                         <Grid ColumnDefinitions="*,*,*,2*"
