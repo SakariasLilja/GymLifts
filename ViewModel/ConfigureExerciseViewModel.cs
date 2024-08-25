@@ -36,7 +36,7 @@ public partial class ConfigureExerciseViewModel : BaseViewModel
             foreach (var lift in lifts)
                 Lifts.Add(lift); 
         }
-
+        catch (FileNotFoundException) { }
         catch (Exception ex)
         {
             Debug.WriteLine(ex);
