@@ -46,9 +46,6 @@ public class ExerciseService
 
     public async Task<List<Exercise>> GetExercises()
     {
-        if (exerciseList?.Count > 0)
-            return exerciseList;
-
         var defaultExercises = await GetDefaultExercises();
         var savedExercises = await GetSavedExercises();
 
