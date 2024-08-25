@@ -19,7 +19,7 @@
             <Color x:Key="DarkLabelText">NavajoWhite</Color>
 
             <Style TargetType="ActivityIndicator" x:Key="DefaultActivityIndicator">
-                <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource DarkPrimary}, Light={StaticResource Primary}}"/>
+                <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource DarkLabelText}, Light={StaticResource Primary}}"/>
             </Style>
 
             <Style TargetType="Page" ApplyToDerivedTypes="True">
