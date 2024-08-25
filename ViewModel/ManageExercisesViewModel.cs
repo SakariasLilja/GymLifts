@@ -84,7 +84,7 @@ public partial class ManageExercisesViewModel : BaseViewModel
             var liftService = new LiftService(exercise.Name);
             await liftService.DeleteLiftsAsync();
 
-            if (defaultExercises.Contains(exercise))
+            if (!defaultExercises.Contains(exercise))
             {
                 await exerciseService.DeleteExerciseAync(exercise);
                 Exercises.Remove(exercise);
