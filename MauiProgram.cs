@@ -4,8 +4,15 @@ using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace GymLifts
 {
+    /// <summary>
+    /// The program associated to the app
+    /// </summary>
     public static class MauiProgram
     {
+        /// <summary>
+        /// Creates a MAUI app with the needed associations
+        /// </summary>
+        /// <returns>The MAUI app with all functionalities</returns>
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -21,6 +28,8 @@ namespace GymLifts
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            // Adding navigation settings
 
             builder.Services.AddSingleton<CategoryService>();
             builder.Services.AddSingleton<MuscleGroupService>();

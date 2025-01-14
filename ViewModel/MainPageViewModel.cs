@@ -2,6 +2,9 @@
 
 namespace GymLifts.ViewModel;
 
+/// <summary>
+/// View model for the application's main page
+/// </summary>
 public partial class MainPageViewModel : BaseViewModel
 {
     ExerciseService exerciseService;
@@ -20,18 +23,28 @@ public partial class MainPageViewModel : BaseViewModel
     public string Weight { get; set; } = "";
     private bool ValidWeight(out double weight) => double.TryParse(Weight, out weight);
 
+    /// <summary>
+    /// Creates a <c>MainPageViewModel</c> instance
+    /// </summary>
+    /// <param name="exerciseService">The associated <c>ExerciseService</c></param>
     public MainPageViewModel(ExerciseService exerciseService)
     {
         Title = "Gym Lifts Tracker";
         this.exerciseService = exerciseService;
     }
 
+    /// <summary>
+    /// Naviagates the user to the <c>CreateExercise</c> page
+    /// </summary>
     [RelayCommand]
     async Task GoToCreateExerciseAsync()
     {
         await Shell.Current.GoToAsync($"{nameof(CreateExercise)}", true);
     }
 
+    /// <summary>
+    /// Reads and displays the saved exercises asynchronously
+    /// </summary>
     [RelayCommand]
     public async Task GetExercisesAsync()
     {
@@ -59,6 +72,9 @@ public partial class MainPageViewModel : BaseViewModel
         }
     }
 
+    /// <summary>
+    /// Saves a lift to the list of saved lifts according to the selected exercise
+    /// </summary>
     [RelayCommand]
     async Task RecordLiftAsync()
     {

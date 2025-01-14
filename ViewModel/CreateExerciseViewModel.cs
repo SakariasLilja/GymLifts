@@ -2,6 +2,9 @@
 
 namespace GymLifts.ViewModel;
 
+/// <summary>
+/// View model for the create exercise page
+/// </summary>
 public partial class CreateExerciseViewModel : BaseViewModel
 {
     CategoryService categoryService;
@@ -17,12 +20,24 @@ public partial class CreateExerciseViewModel : BaseViewModel
     private bool HasCategory => SelectedCategory != null && SelectedCategory != "";
     public string SelectedMuscleGroup { get; set; }
     private bool HasMuscleGroup => SelectedMuscleGroup != null && SelectedMuscleGroup != "";
+
+    /// <summary>
+    /// No two exercises may be the same, this method checks all the saved exercises for duplicate names
+    /// </summary>
+    /// <param name="exerciseName">The name to check</param>
+    /// <returns>If a given name is a duplicate</returns>
     private async Task<bool> IsDuplicate(string exerciseName)
     {
         var exerciseList = await exerciseService.GetExercises();
         return exerciseList.Select(e => e.Name).Contains(exerciseName);
     }
 
+    /// <summary>
+    /// Creates a view model for the create exercise page
+    /// </summary>
+    /// <param name="categoryService">Associated <c>CategoryService</c></param>
+    /// <param name="muscleGroupService">Associated <c>MuscleGroupService</c></param>
+    /// <param name="exerciseService">Associated <c>ExerciseService</c></param>
     public CreateExerciseViewModel(CategoryService categoryService, MuscleGroupService muscleGroupService, ExerciseService exerciseService)
     {
         Title = "Register New Exercise";
@@ -31,6 +46,10 @@ public partial class CreateExerciseViewModel : BaseViewModel
         this.exerciseService = exerciseService;
     }
 
+    /// <summary>
+    /// Tries to save the exercise with data from the page to the list of saved exercises.
+    /// Upon success/failure/exception, a popup will be prompted to the user
+    /// </summary>
     [RelayCommand]
     async Task RegisterExerciseAsync()
     {
@@ -60,6 +79,9 @@ public partial class CreateExerciseViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
+    /// <summary>
+    /// Reads and displays the exercise categories to the page asynchronously
+    /// </summary>
     [RelayCommand]
     public async Task GetCategoriesAsync()
     {
@@ -88,6 +110,10 @@ public partial class CreateExerciseViewModel : BaseViewModel
         }
     }
 
+    /// <summary>
+    /// Reads and displays the muscle groups to the page asynchronously
+    /// </summary>
+    /// <returns></returns>
     [RelayCommand]
     public async Task GetMuscleGroupsAsync()
     {

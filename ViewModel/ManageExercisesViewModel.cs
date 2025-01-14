@@ -2,6 +2,9 @@
 
 namespace GymLifts.ViewModel;
 
+/// <summary>
+/// View model for the manage exercises page
+/// </summary>
 public partial class ManageExercisesViewModel : BaseViewModel
 {
     public ObservableCollection<Exercise> Exercises { get; } = new ();
@@ -18,6 +21,10 @@ public partial class ManageExercisesViewModel : BaseViewModel
     [ObservableProperty]
     bool isRefreshing;
 
+    /// <summary>
+    /// Reads and displays the exercises asynchronously
+    /// </summary>
+    /// <returns></returns>
     [RelayCommand]
     public async Task GetExercisesAsync()
     {
@@ -49,6 +56,9 @@ public partial class ManageExercisesViewModel : BaseViewModel
         }
     }
 
+    /// <summary>
+    /// Navigates the user to the <c>CreateExercise</c> page
+    /// </summary>
     [RelayCommand]
     async Task GoToAddExerciseAsync()
     {
@@ -58,6 +68,10 @@ public partial class ManageExercisesViewModel : BaseViewModel
         await Shell.Current.GoToAsync(nameof(CreateExercise), true);
     }
 
+    /// <summary>
+    /// Navigates the user to the <c>ConfigureExercisePage</c> page
+    /// </summary>
+    /// <param name="exercise">The <c>Exercise</c> association of the navigation</param>
     [RelayCommand]
     async Task GoToConfigureExerciseAsync(Exercise exercise)
     {
@@ -71,6 +85,10 @@ public partial class ManageExercisesViewModel : BaseViewModel
             });
     }
 
+    /// <summary>
+    /// Deletes the given exercise from the application
+    /// </summary>
+    /// <param name="exercise">The <c>Exercise</c> to delete</param>
     [RelayCommand]
     async Task DeleteExerciseAsync(Exercise exercise)
     {

@@ -1,5 +1,8 @@
 namespace GymLifts.View;
 
+/// <summary>
+/// Content page for the manage exercises page
+/// </summary>
 public partial class ManageExercisesPage : ContentPage
 {
 
@@ -11,6 +14,9 @@ public partial class ManageExercisesPage : ContentPage
 		BindingContext = viewModel;
 	}
 
+	/// <summary>
+	/// Loads the exercises to the page when navigated to
+	/// </summary>
     protected override async void OnAppearing()
     {
         base.OnAppearing();

@@ -5,6 +5,9 @@ using SkiaSharp;
 
 namespace GymLifts.ViewModel;
 
+/// <summary>
+/// View model for the manage lifts page
+/// </summary>
 public partial class ManageLiftsViewModel : BaseViewModel
 {
     private static readonly SKColor lineColor = new(255, 222, 173);
@@ -26,6 +29,11 @@ public partial class ManageLiftsViewModel : BaseViewModel
     public ObservableCollection<ISeries> Series { get; set; }
 
     ExerciseService exerciseService;
+
+    /// <summary>
+    /// Creates a new <c>ManageLiftsViewModel</c> instance
+    /// </summary>
+    /// <param name="exerciseService">The associated <c>ExerciseService</c></param>
     public ManageLiftsViewModel(ExerciseService exerciseService) 
     {
         this.exerciseService = exerciseService;
@@ -46,6 +54,9 @@ public partial class ManageLiftsViewModel : BaseViewModel
         };
     }
 
+    /// <summary>
+    /// Reads and displays the application's exercises asynchronously
+    /// </summary>
     [RelayCommand]
     public async Task GetExercisesAsync()
     {
@@ -70,6 +81,9 @@ public partial class ManageLiftsViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
+    /// <summary>
+    /// Reads and displays the lifts associated to this exercise asynchronously
+    /// </summary>
     public async Task RetrieveLiftsAsync()
     {
         if (IsBusy) 
@@ -96,6 +110,9 @@ public partial class ManageLiftsViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
+    /// <summary>
+    /// Naviagates the user to the <c>ManageExercisesPage</c> page
+    /// </summary>
     [RelayCommand]
     async Task GoToManageExercisesAsync()
     {

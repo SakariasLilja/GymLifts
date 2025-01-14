@@ -2,6 +2,9 @@
 
 namespace GymLifts.ViewModel;
 
+/// <summary>
+/// View model for the configure exercise page
+/// </summary>
 [QueryProperty("Exercise", "Exercise")]
 public partial class ConfigureExerciseViewModel : BaseViewModel
 {
@@ -14,12 +17,18 @@ public partial class ConfigureExerciseViewModel : BaseViewModel
     [ObservableProperty]
     bool isRefreshing;
 
+    /// <summary>
+    /// Returns to the previous page from the navigation stack
+    /// </summary>
     [RelayCommand]
     async Task GoBackButton()
     {
         await Shell.Current.GoToAsync("..", true);
     }
 
+    /// <summary>
+    /// Gets and displays the lifts associated with this page asynchronously
+    /// </summary>
     public async Task GetLiftsAsync()
     {
         if (IsBusy)
@@ -46,6 +55,10 @@ public partial class ConfigureExerciseViewModel : BaseViewModel
         finally { IsBusy = false; }
     }
 
+    /// <summary>
+    /// Deletes a given lift asynchronously
+    /// </summary>
+    /// <param name="lift">The lift to delete</param>
     [RelayCommand]
     async Task DeleteLiftAsync(Lift lift)
     {

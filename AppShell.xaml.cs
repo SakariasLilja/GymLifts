@@ -1,5 +1,9 @@
 ﻿namespace GymLifts;
 
+/// <summary>
+/// The app shell.
+/// Is responsible for navigation between pages and tabs
+/// </summary>
 public partial class AppShell : Shell
 {
     public AppShell()

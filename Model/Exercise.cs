@@ -2,6 +2,9 @@
 
 namespace GymLifts.Model;
 
+/// <summary>
+/// <c>Exercise</c> record that contains its name, category, associated muscle group and image file
+/// </summary>
 public record Exercise
 {
     public string Name { get; set; }

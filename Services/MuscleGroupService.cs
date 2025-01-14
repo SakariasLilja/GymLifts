@@ -1,11 +1,18 @@
 ﻿namespace GymLifts.Services;
 
+/// <summary>
+/// Service to read the available muscle groups
+/// </summary>
 public class MuscleGroupService
 {
     public MuscleGroupService() { }
 
     string[] muscleGroups = { };
 
+    /// <summary>
+    /// Reads the file containing the list of muscle groups provided by the application
+    /// </summary>
+    /// <returns>An array of muscle groups, represented as strings</returns>
     public async Task<string[]> GetMuscleGroups()
     {
         if (muscleGroups?.Length > 0)
