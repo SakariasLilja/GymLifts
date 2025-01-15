@@ -1,4 +1,4 @@
-# GymLifts
+# GymLifts - Mobile App
 ### Author:
 > Sakarias Lilja
 
@@ -10,29 +10,44 @@
 	5. Other
 
 ### 1. Idea of application
-The application's primary use case is for its users to track
-and record their lifts.
+The application functions as a personal project to develop and showcase my skills.
 
-This can help the user to better visualise thier efforts and achievements.
+The program is written in C#, utilising the .NET Framework and .NET MAUI (~ 
+a newer Xamarin) to produce a multi-platform mobile application from a single 
+code-base. The app utilises a Shell navigation system and employs a model-view-
+viewmodel architecture. This is a tried and true architecture, which emphasises
+system security through layers, where functionality is split between layers and 
+the communication between the layers is restricted only allowing for communication
+to occur with layers directly below.
+
+The application's primary use case is for its users to track
+and record their lifts. This can help the user to better visualise and track 
+their progress in the gym.
 
 ### 2. Data explanation
-Each data point requires 7 distinct data values.
+Data is visualised with graphs. The graph's nodes can be accessed to view more 
+information about the data point. 
+
+The data can also be viewed in a list view, 
+which also provides additional control over the data points, such as deleting 
+the data point.
+
+Each data point is composed of 7 values:
 
 1. The name of the exercise
 1. The weight lifted (in kg)
-1. The number of repetitions - reps - performed of the exercise
+1. The number of repetitions - reps - performed during the set
 1. RPE - rate of perseived exertion - of the set
-1. Time and date of the lift (acquired automatically)
+1. Time and date of the lift
 1. The category of the exercise, i.e. dumbbell, barbell, machine, etc.
 1. The targeted muscle group of the exercise
 
 ### 3. Data storage
-The data is stored in many different places. The names, categories and targeted
-muscle groups are stored in one file, accessible by all users, while the individual
-lifts are separated by lift name and username.
+Different data storing formats are used for different parts. The most prominent
+data storing format are the JSON-files for the lifts and exercises. CSV files are
+also used for less complex data, for smaller file size and faster read times.
 
-This allows each application to run have multiple users at once, e.g. a user could
-separate their lifts into their generics and their strength focused ones.
+The data is not encrypted, as no volatile information is stored in them. 
 
 ### 4. Functionality
 The user can navigate through the app with the help of both buttons and tabs. 
