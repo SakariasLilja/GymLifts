@@ -1,4 +1,6 @@
-﻿namespace GymLifts.Services;
+﻿using SQLite;
+
+namespace GymLifts.Services;
 
 /// <summary>
 /// Service for modifying the lifts associated to an exercise
@@ -11,13 +13,18 @@ public class LiftService
     private string DirectoryPath => Path.Combine(FileSystem.AppDataDirectory, "SLLiftsTracker");
     private string FilePath => Path.Combine(DirectoryPath, FileName);
 
+    public const string DatabaseFilename = "GymLiftsSQLite.db3";
+    private readonly SQLiteAsyncConnection _connection;
+
     /// <summary>
     /// Opens a service to access the lifts associated to this exercise
     /// </summary>
     /// <param name="exerciseName">The exercise whose lifts to handle</param>
     public LiftService(string exerciseName) 
     { 
-        this.exerciseName = exerciseName; 
+        this.exerciseName = exerciseName;
+        _connection = new SQLiteAsyncConnection(Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename));
+        _connection.CreateTableAsync<Lift>();
     }
 
     /// <summary>
