@@ -13,7 +13,7 @@
 The application functions as a personal project to develop and showcase my skills.
 
 The program is written in C#, utilising the .NET Framework and .NET MAUI (~ 
-a newer Xamarin) to produce a multi-platform mobile application from a single 
+a newer Xamarin) and SQLite to produce a multi-platform mobile application from a single 
 code-base. The app utilises a Shell navigation system and employs a model-view-
 viewmodel architecture. This is a tried and true architecture, which emphasises
 system security through layers, where functionality is split between layers and 
@@ -43,11 +43,12 @@ Each data point is composed of 7 values:
 1. The targeted muscle group of the exercise
 
 ### 3. Data storage
-Different data storing formats are used for different parts. The most prominent
-data storing format are the JSON-files for the lifts and exercises. CSV files are
-also used for less complex data, for smaller file size and faster read times.
+Data is stored in multiple ways. The recorded lifts are stored in a local database
+utilising SQLite. This allows for fast I/O operations as databases operate in
+log(n) time with most of their operations. 
 
-The data is not encrypted, as no volatile information is stored in them. 
+Currently, some other functionalities are stored in JSON and CSV files, but will
+be migrated to online databases and accessed with API:s. 
 
 ### 4. Functionality
 The user can navigate through the app with the help of both buttons and tabs. 
