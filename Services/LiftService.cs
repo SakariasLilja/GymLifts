@@ -8,10 +8,6 @@ namespace GymLifts.Services;
 public class LiftService
 {
     private string exerciseName;
-    List<Lift> lifts = new List<Lift>();
-    private string FileName => exerciseName.Replace(' ', '_');
-    private string DirectoryPath => Path.Combine(FileSystem.AppDataDirectory, "SLLiftsTracker");
-    private string FilePath => Path.Combine(DirectoryPath, FileName);
 
     public const string DatabaseFilename = "GymLiftsSQLite.db3";
     private readonly SQLiteAsyncConnection _connection;
@@ -33,38 +29,27 @@ public class LiftService
     /// <returns>A list of lifts</returns>
     public async Task<List<Lift>> GetLiftsAsync()
     {
-        if (lifts?.Count != 0)
-            return lifts;
-
-        using var stream = File.OpenRead(FilePath);
-        using var reader = new StreamReader(stream);
-        var contents = await reader.ReadToEndAsync();
-
-        //Stops error from occurring when JSON file is empty
-        if (contents != "")
-            lifts = JsonSerializer.Deserialize<List<Lift>>(contents);
-
-        return lifts;
+        return await _connection.Table<Lift>().Where(l => l.Name == exerciseName).ToListAsync();
     }
     
     /// <summary>
     /// Saves a lift asynchronously
     /// </summary>
-    /// <param name="lift">The lift to save to the list of lifts</param>
+    /// <param name="lift">The lift to record</param>
     public async Task SaveLiftAsync(Lift lift)
     {
-        try { await GetLiftsAsync(); }
-        catch (DirectoryNotFoundException) { Directory.CreateDirectory(DirectoryPath); }
-        catch (FileNotFoundException) { }
-        finally
-        {
-            lifts.Add(lift);
-            var jsonString = JsonSerializer.Serialize(lifts);
+        lift.Name = exerciseName;
+        await _connection.InsertAsync(lift);
+    }
 
-            using var stream = File.OpenWrite(FilePath);
-            using var writer = new StreamWriter(stream);
-            await writer.WriteAsync(jsonString);
-        }
+    /// <summary>
+    /// Updates a lift asynchronously
+    /// </summary>
+    /// <param name="lift">The lift to update</param>
+    public async Task UpdateLiftAsync(Lift lift)
+    {
+        lift.Name = exerciseName;
+        await _connection.UpdateAsync(lift);
     }
 
     /// <summary>
@@ -73,21 +58,7 @@ public class LiftService
     /// <param name="lift">The lift to remove</param>
     public async Task DeleteLiftAsync(Lift lift)
     {
-        try { await GetLiftsAsync(); }
-        catch (DirectoryNotFoundException) { Directory.CreateDirectory(DirectoryPath); }
-        catch (FileNotFoundException) { }
-        finally
-        {
-            lifts?.Remove(lift);
-            var jsonString = JsonSerializer.Serialize(lifts);
-
-            //Clears out all previous lifts correctly, as overwriting with fewer characters doesn't work
-            await DeleteLiftsAsync();
-
-            using var stream = File.OpenWrite(FilePath);
-            using var writer = new StreamWriter(stream);
-            await writer.WriteAsync(jsonString);
-        }
+        await _connection.DeleteAsync(lift);
     }
 
     /// <summary>
@@ -95,7 +66,7 @@ public class LiftService
     /// </summary>
     public async Task DeleteLiftsAsync()
     {
-        Directory.CreateDirectory(DirectoryPath);
-        await File.WriteAllTextAsync(FilePath, "");
+        List<Lift> lifts = await GetLiftsAsync();
+        foreach (Lift lift in lifts) { await _connection.DeleteAsync(lift); }
     }
 }
